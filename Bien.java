@@ -19,10 +19,8 @@ class Bien {
         Modifier le bien
         
         return le bien modifié
-        
-        int idBien l'identifiant unique du bien
     */
-    Bien setBien (int idBien) {
+    Bien setBien () {
         
         
         
@@ -30,10 +28,8 @@ class Bien {
     
     /*
         Supprimme le bien
-      
-        int idBien l'identifiant unique du bien
     */
-    void delBien (int idBien) {
+    void delBien () {
         
         
         
@@ -47,6 +43,17 @@ class Bien {
         String typeDemande le type de biens demandé
     */
     String affBiensParType (String typeDemande) {
+        
+        
+        
+    }
+    
+    /*
+        Dis si le bien est loué ou non
+        
+        return boolean true si le bien est loué, false si non
+    */
+    boolean estLoue () {
         
         
     }
