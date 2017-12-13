@@ -36,19 +36,6 @@ class Bien {
     }
     
     /*
-        Affiche les biens selon le type demandé par l'utilisateur
-        
-        return String les biens demandés
-        
-        String typeDemande le type de biens demandé
-    */
-    String affBiensParType (String typeDemande) {
-        
-        
-        
-    }
-    
-    /*
         Dis si le bien est loué ou non
         
         return boolean true si le bien est loué, false si non
