@@ -1,3 +1,4 @@
+import java.util.Scanner;
 /*
     Cette classe représente les biens immobiliers
     
@@ -8,11 +9,38 @@
     String ville le nom de la ville
 */
 class Bien {
-    
-    Bien (String type, int numRue, String rue, int cp, String ville) {
-        
-        
-        
+
+    private String type;
+    private int numRue;
+    private String rue;
+    private int cp;
+    private String ville;
+
+    Bien () {
+        type = "";
+        numRue = -1;
+        rue = "";
+        cp = -1;
+        ville = "";
+    }
+
+    void saisirBien () {
+        Scanner sc = new Scanner (System.in);
+
+        System.out.print ("Entrez le type du bien : ");
+        type = sc.nextLine();
+
+        System.out.print ("Entrez le numero de rue du bien : ");
+        numRue = sc.nextInt();
+
+        System.out.print ("Entrez la rue du bien : ");
+        rue = sc.nextLine();
+
+        System.out.print ("Entrez le code postal du bien : ");
+        cp = sc.nextInt();
+
+        System.out.print ("Entrez la ville du bien : ");
+        ville = sc.nextLine();
     }
     
     /*
