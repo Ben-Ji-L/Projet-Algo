@@ -9,7 +9,7 @@
 */
 class Bien {
     
-    Biens (String type, int numRue, String rue, int cp, String ville) {
+    Bien (String type, int numRue, String rue, int cp, String ville) {
         
         
         
@@ -22,7 +22,7 @@ class Bien {
     */
     Bien setBien () {
         
-        
+        return null;
         
     }
     
@@ -41,7 +41,7 @@ class Bien {
         return boolean true si le bien est loué, false si non
     */
     boolean estLoue () {
-        
+        return false;
         
     }
 }

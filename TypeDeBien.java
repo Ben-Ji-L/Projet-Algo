@@ -3,12 +3,18 @@ classe qui définit les types de biens et les actions possibles sur ces types
 */
 
 class TypeDeBien {
-    
+    /**
+     *
+     * @param iDTypeBien
+     * @param nomTypeBien
+     */
     TypeDeBien (int iDTypeBien, String nomTypeBien ){
         
     }
     
-    //ajouter un type de bien
+     /**
+     * ajouter un type de bien
+     */
     void ajouterType () {
         
     }

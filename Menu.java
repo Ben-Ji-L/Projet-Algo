@@ -8,9 +8,10 @@ class Menu {
         String typeDemande le type de biens demandé
     */
     String affBiensParType (String typeDemande) {
-        
-        
-        
+
+        return "";
+
+
     }
     
     /*
@@ -21,9 +22,10 @@ class Menu {
         int[] idLoc l'identifiant du locataire
     */
     String affLocAlpha (int[] idLoc) {
-        
-        
-        
+
+        return "";
+
+
     }
     
     /*
@@ -35,9 +37,10 @@ class Menu {
         String[]  nomLocataires la liste des noms de locataires
     */
     String affLocParTyBien (String[] type, String[] nomLocataires) {
-        
-        
-        
+
+        return "";
+
+
     }
     
     /*
@@ -51,7 +54,7 @@ class Menu {
     String rechLocationsParLocataire (String[] nomLocations, String[] nomLocataires) {
         
         
-        
+        return "";
     }
     
 }
