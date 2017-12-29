@@ -42,6 +42,15 @@ class Bien {
         System.out.print ("Entrez la ville du bien : ");
         ville = sc.nextLine();
     }
+
+    public String toString () {
+
+        return "\nType : " + type + "\n"
+                + "Numero de rue : " + numRue + "\n"
+                + "Rue : " + rue + "\n"
+                + "Code postal : " + cp + "\n"
+                + "Ville : " + ville;
+    }
     
     /*
         Modifier le bien
