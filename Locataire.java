@@ -1,3 +1,6 @@
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -5,15 +8,24 @@ import java.util.Scanner;
  */
 class Locataire {
 
+
     private int identifiant;
     private String nom;
     private String adresse;
     private String numTel;
     private int [] listeBiens;
-    private int nbBiensLoués;
+    private int nbBiensLoues;
 
     public void setIdentifiant(int identifiant) {
         this.identifiant = identifiant;
+    }
+
+    public int getIdentifiant() {
+        return identifiant;
+    }
+
+    public int getNbBiensLoues() {
+        return nbBiensLoues;
     }
 
     /**
@@ -26,7 +38,7 @@ class Locataire {
         adresse = "";
         numTel = "";
         listeBiens = new int[5];
-        nbBiensLoués = 0;
+        nbBiensLoues = 0;
 
     }
 
@@ -51,9 +63,36 @@ class Locataire {
                 + "Nom : " + nom + "\n"
                 + "Adresse : " + adresse + "\n"
                 + "Numéro de téléphone : " + numTel + "\n"
-                + "Nombre de biens loués : " + nbBiensLoués;
+                + "Nombre de biens loués : " + nbBiensLoues;
 
     }
 
-    
+    String affichageSimplifieLocataire () {
+
+        return "\n" + identifiant + " : " + nom;
+    }
+
+    void sauvegarderLocataire (DataOutputStream dos) throws IOException {
+
+        dos.writeInt(identifiant);
+        dos.writeUTF(nom);
+        dos.writeUTF(adresse);
+        dos.writeUTF(numTel);
+        dos.writeInt(nbBiensLoues);
+        for (int i = 0; i< nbBiensLoues; i++){
+            dos.writeInt(listeBiens[i]);
+        }
+    }
+
+    void chargerLocataire (DataInputStream dis) throws IOException {
+
+        identifiant = dis.readInt();
+        nom = dis.readUTF();
+        adresse = dis.readUTF();
+        numTel = dis.readUTF();
+        nbBiensLoues = dis.readInt();
+        for (int i=0; i<nbBiensLoues; i++) {
+            listeBiens[i] = dis.readInt();
+        }
+    }
 }
