@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class MenuBiens {
 
-    void afficherMeu () {
+    void afficherMeu () {   // la vache !!!
 
-        Scanner sc = new ScScanner(System.in);
+        Scanner sc = new Scanner(System.in);
         int numChoisi;
 
         do {
