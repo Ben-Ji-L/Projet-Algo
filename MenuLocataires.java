@@ -69,7 +69,7 @@ public class MenuLocataires {
         } while (choixMenuGeneral!=7);
     }
 
-    void menuModifier (ListeLocataires liste) {
+    void menuModifier (ListeLocataires liste) throws IOException {
         int identAModifier;
         int choixMenuModifier;
         String newNom;
