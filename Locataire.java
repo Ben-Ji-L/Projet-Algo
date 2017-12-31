@@ -16,8 +16,8 @@ class Locataire {
     private int [] listeBiens;
     private int nbBiensLoues;
 
-    public void setIdentifiant(int identifiant) {
-        this.identifiant = identifiant;
+    public void setIdentifiant(int ident) {
+        this.identifiant = ident;
     }
 
     public int getIdentifiant() {
@@ -26,6 +26,18 @@ class Locataire {
 
     public int getNbBiensLoues() {
         return nbBiensLoues;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setNumTel(String numTel) {
+        this.numTel = numTel;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
     }
 
     /**
