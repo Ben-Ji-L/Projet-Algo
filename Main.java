@@ -7,6 +7,10 @@ public class Main {
         Locataire loc = new Locataire();
         MenuLocataires menu1 = new MenuLocataires();
 
+        Bien bien = new Bien();
+        MenuBiens menu2 = new MenuBiens();
+
         menu1.afficherMenu();
+        menu2.afficherMenu();
     }
 }
