@@ -63,6 +63,39 @@ public class ListeLocataires {
             nbLocataires --;
             System.out.println ("Locataire supprimé.\n");
         }
+        else {
+            System.out.println ("Identifiant inconnu.");
+        }
+    }
+
+    void modifierNom (int ident, String newNom) {
+
+        for (int i=0; i<nbLocataires; i++) {
+            if (tableauDeLocataires[i].getIdentifiant()==ident) {
+                tableauDeLocataires[i].setNom(newNom);
+                return;
+            }
+        }
+    }
+
+    void modifierTelephone (int ident, String newTelephone) {
+
+        for (int i=0; i<nbLocataires; i++) {
+            if (tableauDeLocataires[i].getIdentifiant()==ident) {
+                tableauDeLocataires[i].setNumTel(newTelephone);
+                return;
+            }
+        }
+    }
+
+    void modifierAdresse (int ident, String newAdresse) {
+
+        for (int i=0; i<nbLocataires; i++) {
+            if (tableauDeLocataires[i].getIdentifiant()==ident) {
+                tableauDeLocataires[i].setAdresse(newAdresse);
+                return;
+            }
+        }
     }
 
     void afficherListeDesLocataires () {
@@ -83,6 +116,17 @@ public class ListeLocataires {
             resultat += tableauDeLocataires[i].affichageSimplifieLocataire() + "\n";
         }
         System.out.println(resultat);
+    }
+
+    void afficherUnLocataire (int ident) {
+
+        for (int i=0; i<nbLocataires; i++) {
+
+            if (tableauDeLocataires[i].getIdentifiant()==ident) {
+                System.out.print (tableauDeLocataires [i].toString());
+                return;
+            }
+        }
     }
 
     int genererIdentifiant () {
