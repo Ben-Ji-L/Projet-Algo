@@ -1,7 +1,11 @@
 import java.util.Scanner;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+
 /*
     Cette classe représente les biens immobiliers
-    
+
     String type le type du bien (studio, appartement...)
     int numRue le numero de la rue
     String rue le nom de la rue
@@ -10,11 +14,20 @@ import java.util.Scanner;
 */
 class Bien {
 
+    private int id;
     private String type;
     private int numRue;
     private String rue;
     private int cp;
     private String ville;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
 
     Bien () {
         type = "";
@@ -32,12 +45,14 @@ class Bien {
 
         System.out.print ("Entrez le numero de rue du bien : ");
         numRue = sc.nextInt();
+        sc.nextLine();
 
         System.out.print ("Entrez la rue du bien : ");
         rue = sc.nextLine();
 
         System.out.print ("Entrez le code postal du bien : ");
         cp = sc.nextInt();
+        sc.nextLine();
 
         System.out.print ("Entrez la ville du bien : ");
         ville = sc.nextLine();
@@ -51,34 +66,32 @@ class Bien {
                 + "Code postal : " + cp + "\n"
                 + "Ville : " + ville;
     }
-    
-    /*
-        Modifier le bien
-        
-        return le bien modifié
-    */
-    Bien setBien () {
-        
-        return null;
-        
+
+    void sauvegarderBien(DataOutputStream dos) throws IOException {
+        dos.writeInt(id);
+        dos.writeUTF(type);
+        dos.writeInt(numRue);
+        dos.writeUTF(rue);
+        dos.writeInt(cp);
+        dos.writeUTF(ville);
     }
-    
-    /*
-        Supprimme le bien
-    */
-    void delBien () {
-        
-        
-        
+
+    void chargerBien(DataInputStream dis) throws IOException {
+        id = dis.readInt();
+        type = dis.readUTF();
+        numRue = dis.readInt();
+        rue = dis.readUTF();
+        cp = dis.readInt();
+        ville = dis.readUTF();
     }
-    
+
     /*
         Dis si le bien est loué ou non
-        
+
         return boolean true si le bien est loué, false si non
     */
     boolean estLoue () {
         return false;
-        
+
     }
 }

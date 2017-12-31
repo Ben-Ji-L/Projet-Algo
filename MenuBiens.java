@@ -1,11 +1,13 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class MenuBiens {
 
-    void afficherMenu () {
+    void afficherMenu () throws IOException {
 
         Scanner sc = new Scanner(System.in);
         int numChoisi;
+        int id;
         ListeBiens listeB = new ListeBiens();
 
         listeB.chargerListe();
@@ -31,11 +33,10 @@ public class MenuBiens {
                 case 3:
                     if (listeB.getNbBiens() == 0) {
                         System.out.println("Il n'y a aucun bien enregistré.\n");
-                        return;
+                        break;
                     }
-                    listeB.afficherListeSimplifiee();
-                    System.out.println("Entrez le numéro identifiant du Bien à supprimer : ");
-                    id = nextInt();
+                    System.out.print("Entrez le numéro identifiant du Bien à supprimer : ");
+                    id = sc.nextInt();
                     listeB.supprimerBien(id);
                     listeB.sauvegarderListe();
                     break;
