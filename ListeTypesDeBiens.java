@@ -8,6 +8,9 @@ public class ListeTypesDeBiens {
     private int nbTypes;
     private int prochainIdent;
 
+    /**
+     * Constructeur d'un objet ListeTypesDeBiens
+     */
     ListeTypesDeBiens () {
 
         tableauDeTypesDeBiens = new TypeDeBien[20];
@@ -15,6 +18,10 @@ public class ListeTypesDeBiens {
         prochainIdent = 1;
     }
 
+    /**
+     * Ajoute un nouveau type à la liste
+     * @param type Nouveau type à ajouter
+     */
     void ajouterTypeDeBien (TypeDeBien type) {
         int ident;
 
@@ -25,11 +32,18 @@ public class ListeTypesDeBiens {
 
     }
 
+    /**
+     * Supprime un type de la liste
+     * @param ident Identifiant du type à supprimer
+     */
     void supprimerTypeDeBien (int ident) {
         //TODO : vérifier que le type de bien n'est plus utilisé
 
         boolean trouve = false;
 
+        /*
+        Recherche de l'identifiant donné en paramètre dans les n-1 cases du tableau contenant les types
+         */
         for (int i=0; i<nbTypes-1; i++) {
             if (tableauDeTypesDeBiens[i].getIdentifiant()==ident){
                 trouve=true;
@@ -40,12 +54,18 @@ public class ListeTypesDeBiens {
             }
         }
 
+        /*
+        Recherche de l'identifiant donné en paramètre dans la dernière case
+         */
         if (!trouve) {
             if (tableauDeTypesDeBiens[nbTypes-1].getIdentifiant()==ident) {
                 trouve = true;
             }
         }
 
+        /*
+        Une fois l'identifiant localisé et les types décalés, met la dernière casse à "null" et cesse de la prendre en compte
+         */
         if (trouve) {
             tableauDeTypesDeBiens[nbTypes-1] = null;
             nbTypes --;
@@ -56,6 +76,11 @@ public class ListeTypesDeBiens {
         }
     }
 
+    /**
+     * Modifie le nom d'un type
+     * @param ident Identifiant du type à modifier
+     * @param newNom Le nouveau nom
+     */
     void modifierNom (int ident, String newNom) {
 
         for (int i=0; i<nbTypes; i++) {
@@ -67,6 +92,9 @@ public class ListeTypesDeBiens {
         }
     }
 
+    /**
+     * Affiche la liste de tous les types enregistrés (identifiant, nom)
+     */
     void afficherListeDesTypesDeBien () {
 
         for (int i=0; i<nbTypes; i++) {
@@ -74,6 +102,10 @@ public class ListeTypesDeBiens {
         }
     }
 
+    /**
+     * Sauvegarde la liste des types
+     * @throws IOException
+     */
     void sauvegarderListe () throws IOException {
         String fichier = "TypesDeBiens.bin";
         DataOutputStream dos;
@@ -88,6 +120,10 @@ public class ListeTypesDeBiens {
         dos.close();
     }
 
+    /**
+     * Charge la liste des types
+     * @throws IOException
+     */
     void chargerListe () throws IOException {
         String fichier = "TypesDeBiens.bin";
 
@@ -109,6 +145,10 @@ public class ListeTypesDeBiens {
         dis.close();
     }
 
+    /**
+     * Génère un identifiant unique
+     * @return un identifiant unique
+     */
     int genererIdentifiant () {
         int identifiant;
 
@@ -117,6 +157,10 @@ public class ListeTypesDeBiens {
         return identifiant;
     }
 
+    /**
+     * Permet de recupérer le nombre total de types enregistrés
+     * @return le nombre total de types
+     */
     public int getNbTypes() {
         return nbTypes;
     }

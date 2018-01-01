@@ -8,6 +8,10 @@ class MenuGeneral {
     Scanner sc = new Scanner(System.in);
     int choixMenuGeneral;
 
+    /**
+     * Affiche le menu général de l'application
+     * @throws IOException
+     */
     void afficherMenu () throws IOException {
 
         System.out.print ("...BIENVENUE SUR LE PROGRAMME DE GESTION DE LOCATIONS DE L'ASSOCIATION LOSC...\n");
@@ -25,29 +29,47 @@ class MenuGeneral {
 
              switch (choixMenuGeneral) {
 
+                 /*
+                 Affiche le menu des locataires
+                  */
                  case 1:
                      MenuLocataires menuLoc = new MenuLocataires();
                      menuLoc.afficherMenu();
                      break;
 
+                 /*
+                 Affiche le menu des biens
+                  */
                  case 2:
                      MenuBiens menuBiens = new MenuBiens();
                      menuBiens.afficherMenu();
                      break;
 
+                 /*
+                 Affiche le menu des types de biens
+                  */
                  case 3:
                      MenuTypesDeBiens menuTypes = new MenuTypesDeBiens();
                      menuTypes.afficherMenu();
                      break;
 
+                 /*
+                 Affiche le menu des locations
+                  */
                  case 4:
                      MenuLocations menuLocations = new MenuLocations();
                      menuLocations.afficherMenu();
                      break;
 
+                 /*
+                 Permet de sortir du programme de location et met fin à l'application
+                  */
                  case 5:
                      break;
 
+                 /*
+                 Résout les cas de choix non compris dans la liste du menu général
+                  */
                  default:
                      System.out.print("Commande incorrecte.");
 
