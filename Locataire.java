@@ -16,30 +16,6 @@ class Locataire {
     private int [] listeBiens;
     private int nbBiensLoues;
 
-    public void setIdentifiant(int ident) {
-        this.identifiant = ident;
-    }
-
-    public int getIdentifiant() {
-        return identifiant;
-    }
-
-    public int getNbBiensLoues() {
-        return nbBiensLoues;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public void setNumTel(String numTel) {
-        this.numTel = numTel;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
     /**
      * Construit un locataire
      */
@@ -106,5 +82,29 @@ class Locataire {
         for (int i=0; i<nbBiensLoues; i++) {
             listeBiens[i] = dis.readInt();
         }
+    }
+
+    public void setIdentifiant(int ident) {
+        this.identifiant = ident;
+    }
+
+    public int getIdentifiant() {
+        return identifiant;
+    }
+
+    public int getNbBiensLoues() {
+        return nbBiensLoues;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setNumTel(String numTel) {
+        this.numTel = numTel;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
     }
 }

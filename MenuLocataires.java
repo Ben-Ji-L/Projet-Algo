@@ -6,7 +6,7 @@ public class MenuLocataires {
 
     void afficherMenu () throws IOException {
 
-        int choixMenuGeneral;
+        int choixMenuLoc;
         int identASupprimer;
         ListeLocataires liste = new ListeLocataires();
 
@@ -23,9 +23,9 @@ public class MenuLocataires {
                     "[7] Sortir du menu\n\n");
 
             System.out.print("Entrez le numéro de l'action souhaitée : ");
-            choixMenuGeneral = sc.nextInt();
+            choixMenuLoc = sc.nextInt();
 
-            switch (choixMenuGeneral) {
+            switch (choixMenuLoc) {
 
                 case 1:
                     if (liste.getNbLocataires()<500) {
@@ -65,8 +65,20 @@ public class MenuLocataires {
                 case 4:
                     liste.afficherListeDesLocataires();
                     break;
+
+                case 5:
+                    break;
+
+                case 6:
+                    break;
+
+                case 7:
+                    break;
+
+                default:
+                    System.out.print("Commande incorrecte.");
             }
-        } while (choixMenuGeneral!=7);
+        } while (choixMenuLoc!=7);
     }
 
     void menuModifier (ListeLocataires liste) throws IOException {
