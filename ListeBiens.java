@@ -1,17 +1,25 @@
 import java.io.*;
 
+/**
+ * Cette classe représente la liste des biens immobiliers.
+ */
 public class ListeBiens {
 
     private Bien[] tabBiens;
     private int  nbBiens;
     private int nextId;
 
+    /**
+     * Permet de récuppérer le nombre de biens.
+     * @return le nombre de biens
+     */
     public int getNbBiens() {
         return nbBiens;
     }
 
     ListeBiens () {
 
+        // Le tableau qui contiendra les biens
         tabBiens = new Bien[500];
         nbBiens = 0;
         nextId = 1;
@@ -27,6 +35,9 @@ public class ListeBiens {
         System.out.println (resultat);
     }
 
+    /**
+     * Affiche les biens de maniére plus simple
+     */
     void afficherListeSimplifiee (){
         String resultat = "";
 
@@ -37,6 +48,10 @@ public class ListeBiens {
         System.out.println(resultat);
     }
 
+    /**
+     * Permetd'ajouter un bien à la liste.
+     * @param bien le bien à ajouter
+     */
     void ajouterBien(Bien bien) {
 
         int id;
@@ -47,6 +62,10 @@ public class ListeBiens {
         nbBiens++;
     }
 
+    /**
+     * Permet de supprimer un bien de la liste.
+     * @param id l'identifiant du bien à supprimer
+     */
     void supprimerBien (int id) {
         boolean trouve = false;
 
@@ -73,6 +92,11 @@ public class ListeBiens {
         }
     }
 
+    /**
+     * Permet de modifier le type d'un bien
+     * @param id l'identifiant du bien
+     * @param newType le nouveau type du bien
+     */
     void modifierType(int id, String newType) {
 
         for (int i = 0; i < nbBiens; i++) {
@@ -83,6 +107,11 @@ public class ListeBiens {
         }
     }
 
+    /**
+     * Permet de modifier le numero de rue d'un bien
+     * @param id l'identifiant du bien
+     * @param newNumRue le nouveau numero de rue
+     */
     void modifierNumRue(int id, int newNumRue) {
 
         for (int i = 0; i < nbBiens; i++) {
@@ -93,6 +122,11 @@ public class ListeBiens {
         }
     }
 
+    /**
+     * Permet de modifier le nom de la rue d'un bien
+     * @param id l'identifiant du bien
+     * @param newRue le nouveau nom de rue
+     */
     void modifierRue(int id, String newRue) {
 
         for (int i = 0; i < nbBiens; i++) {
@@ -103,6 +137,11 @@ public class ListeBiens {
         }
     }
 
+    /**
+     * Permet de modifier le code postal d'un bien
+     * @param id l'identifiant du bien
+     * @param newCp le nouveau code postal du bien
+     */
     void modifierCp(int id, int newCp) {
 
         for (int i = 0; i < nbBiens; i++) {
@@ -113,6 +152,11 @@ public class ListeBiens {
         }
     }
 
+    /**
+     * Permet de modifier la ville du bien
+     * @param id l'identifiant du bien
+     * @param newVille le nouveau nom de la ville
+     */
     void modifierVille(int id, String newVille) {
 
         for (int i = 0; i < nbBiens; i++) {
@@ -123,6 +167,10 @@ public class ListeBiens {
         }
     }
 
+    /**
+     * Méthode permettant de générer un identifiant
+     * @return id l'identifiant crée
+     */
     int genererId() {
         int id;
 
@@ -131,6 +179,10 @@ public class ListeBiens {
         return id;
     }
 
+    /**
+     * Sauvegarde la liste dans un fichier binaire
+     * @throws IOException
+     */
     void sauvegarderListe () throws IOException {
         String fichier = "Biens";
         DataOutputStream dos;
@@ -145,6 +197,10 @@ public class ListeBiens {
         dos.close();
     }
 
+    /**
+     * Charge une liste de biens depuis le fichier binaire
+     * @throws IOException
+     */
     void chargerListe () throws IOException {
         String fichier = "Biens";
 
