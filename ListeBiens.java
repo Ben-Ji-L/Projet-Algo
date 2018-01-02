@@ -18,6 +18,16 @@ public class ListeBiens {
         nextId = 1;
     }
 
+    void afficherListeDesBiens () {
+        String resultat = "";
+
+        for (int i=0; i<nbBiens; i++) {
+
+            resultat += tabBiens[i].toString() + "\n";
+        }
+        System.out.println (resultat);
+    }
+
     void afficherListeSimplifiee (){
         String resultat = "";
 

@@ -18,7 +18,8 @@ public class MenuBiens {
                     "[1] Ajouter un bien\n" +
                     "[2] Modifier un bien\n" +
                     "[3] Supprimer un bien\n" +
-                    "[4] Sortir du menu\n\n");
+                    "[4] Afficher la liste des biens\n" +
+                    "[5] Sortir du menu\n\n");
 
             System.out.print("Sélectionner l'action souhaitée : ");
             numChoisi = sc.nextInt();
@@ -52,8 +53,17 @@ public class MenuBiens {
                     listeB.supprimerBien(id);
                     listeB.sauvegarderListe();
                     break;
+
+                case 4:
+                    if (listeB.getNbBiens() == 0) {
+                        System.out.println("Il n'y a aucun bien enregistré.\n");
+                        break;
+                    } else {
+                        listeB.afficherListeDesBiens();
+                        break;                        
+                    }
             }
-        } while(numChoisi!=4);
+        } while(numChoisi != 5);
 
     }
 
