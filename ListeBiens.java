@@ -18,6 +18,16 @@ public class ListeBiens {
         nextId = 1;
     }
 
+    void afficherListeSimplifiee (){
+        String resultat = "";
+
+        for (int i=0; i<nbBiens; i++) {
+
+            resultat += tabBiens[i].affichageSimplifieBien() + "\n";
+        }
+        System.out.println(resultat);
+    }
+
     void ajouterBien(Bien bien) {
 
         int id;

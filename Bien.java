@@ -67,6 +67,11 @@ class Bien {
                 + "Ville : " + ville;
     }
 
+    String affichageSimplifieBien () {
+
+        return "\n" + id + " : " + type + numRue + " " + rue + " " + cp + " " + ville;
+    }
+
     void sauvegarderBien(DataOutputStream dos) throws IOException {
         dos.writeInt(id);
         dos.writeUTF(type);

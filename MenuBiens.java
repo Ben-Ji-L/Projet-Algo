@@ -46,6 +46,7 @@ public class MenuBiens {
                         System.out.println("Il n'y a aucun bien enregistré.\n");
                         break;
                     }
+                    listeB.afficherListeSimplifiee();
                     System.out.print("Entrez le numéro identifiant du Bien à supprimer : ");
                     id = sc.nextInt();
                     listeB.supprimerBien(id);
