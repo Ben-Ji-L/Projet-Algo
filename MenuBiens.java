@@ -3,9 +3,10 @@ import java.util.Scanner;
 
 public class MenuBiens {
 
+    Scanner sc = new Scanner(System.in);
+
     void afficherMenu () throws IOException {
 
-        Scanner sc = new Scanner(System.in);
         int numChoisi;
         int id;
         ListeBiens listeB = new ListeBiens();
@@ -30,6 +31,16 @@ public class MenuBiens {
                     listeB.sauvegarderListe();
                     break;
 
+                case 2:
+                    if (listeB.getNbBiens() == 0) {
+                        System.out.println ("Il n'y a aucun bien enregistré.\n");
+                        return;
+                    }
+
+                    modifierBien(listeB);
+                    listeB.sauvegarderListe();
+                    break;
+
                 case 3:
                     if (listeB.getNbBiens() == 0) {
                         System.out.println("Il n'y a aucun bien enregistré.\n");
@@ -42,6 +53,76 @@ public class MenuBiens {
                     break;
             }
         } while(numChoisi!=4);
+
+    }
+
+    void modifierBien (ListeBiens listeB) throws IOException {
+
+        int oldId;
+        int choixMenuModif;
+        String newType;
+        int newNumRue;
+        String newRue;
+        int newCp;
+        String newVille;
+
+        System.out.print("Entrez le numéro identifiant du bien à modifier : ");
+        oldId = sc.nextInt();
+
+        do {
+
+            System.out.print ("\n\n______MODIFIER UN BIEN_____\n" +
+                "[1] Modifier le type\n" +
+                "[2] Modifier le numéro de rue\n" +
+                "[3] Modifier le nom de la rue\n" +
+                "[4] Modifier le code postal\n" +
+                "[5] Modifier le nom de la ville\n" +
+                "[6] Modifications terminées\n\n" +
+                "Entrez le numéro de l'action souhaitée : ");
+            choixMenuModif = sc.nextInt();
+
+            switch(choixMenuModif) {
+                case 1:
+                    System.out.print("Entrez le nouveau type de bien souhaité : ");
+                    sc.nextLine();
+                    newType = sc.nextLine();
+                    listeB.modifierType(oldId, newType);
+                    listeB.sauvegarderListe();
+                    break;
+
+                case 2:
+                    System.out.print("Entrez le nouveau numéro de rue souhaitée: ");
+                    sc.nextLine();
+                    newNumRue = sc.nextInt();
+                    listeB.modifierNumRue(oldId, newNumRue);
+                    listeB.sauvegarderListe();
+                    break;
+
+                case 3:
+                    System.out.print("Entrez le nouveau nom de rue souhaité : ");
+                    sc.nextLine();
+                    newRue = sc.nextLine();
+                    listeB.modifierRue(oldId, newRue);
+                    listeB.sauvegarderListe();
+                    break;
+
+                case 4:
+                    System.out.print("Entrez le nouveau code postal souhaité : ");
+                    sc.nextLine();
+                    newCp = sc.nextInt();
+                    listeB.modifierCp(oldId, newCp);
+                    listeB.sauvegarderListe();
+                    break;
+
+                case 5:
+                    System.out.print("Entrez le nouveau nom de ville : ");
+                    sc.nextLine();
+                    newVille = sc.nextLine();
+                    listeB.modifierVille(oldId, newVille);
+                    listeB.sauvegarderListe();
+                    break;
+            }
+        } while(choixMenuModif != 6);
 
     }
 

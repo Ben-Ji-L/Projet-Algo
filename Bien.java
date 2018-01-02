@@ -85,6 +85,26 @@ class Bien {
         ville = dis.readUTF();
     }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setNumRue(int numRue) {
+        this.numRue = numRue;
+    }
+
+    public void setRue(String rue) {
+        this.rue = rue;
+    }
+
+    public void setCp(int cp) {
+        this.cp = cp;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
     /*
         Dis si le bien est loué ou non
 

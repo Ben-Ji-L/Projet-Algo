@@ -54,6 +54,56 @@ public class ListeBiens {
         }
     }
 
+    void modifierType(int id, String newType) {
+
+        for (int i = 0; i < nbBiens; i++) {
+            if (tabBiens[i].getId() == id) {
+                tabBiens[i].setType(newType);
+                return;
+            }
+        }
+    }
+
+    void modifierNumRue(int id, int newNumRue) {
+
+        for (int i = 0; i < nbBiens; i++) {
+            if (tabBiens[i].getId() == id) {
+                tabBiens[i].setNumRue(newNumRue);
+                return;
+            }
+        }
+    }
+
+    void modifierRue(int id, String newRue) {
+
+        for (int i = 0; i < nbBiens; i++) {
+            if (tabBiens[i].getId() == id) {
+                tabBiens[i].setRue(newRue);
+                return;
+            }
+        }
+    }
+
+    void modifierCp(int id, int newCp) {
+
+        for (int i = 0; i < nbBiens; i++) {
+            if (tabBiens[i].getId() == id) {
+                tabBiens[i].setCp(newCp);
+                return;
+            }
+        }
+    }
+
+    void modifierVille(int id, String newVille) {
+
+        for (int i = 0; i < nbBiens; i++) {
+            if (tabBiens[i].getId() == id) {
+                tabBiens[i].setVille(newVille);
+                return;
+            }
+        }
+    }
+
     int genererId() {
         int id;
 
