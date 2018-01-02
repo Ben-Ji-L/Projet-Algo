@@ -1,15 +1,25 @@
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Classe gérant toutes les options diponnibles sur les locataires
+ */
 public class MenuLocataires {
     Scanner sc = new Scanner (System.in);
 
+    /**
+     * Affiche le menu des locataires
+     * @throws IOException
+     */
     void afficherMenu () throws IOException {
 
-        int choixMenuGeneral;
+        int choixMenuLoc;
         int identASupprimer;
         ListeLocataires liste = new ListeLocataires();
 
+        /*
+        Charge les locataires précédement sauvegardés dans la liste créée à l'affichage du menu
+         */
         liste.chargerListe();
 
         do {
@@ -23,10 +33,13 @@ public class MenuLocataires {
                     "[7] Sortir du menu\n\n");
 
             System.out.print("Entrez le numéro de l'action souhaitée : ");
-            choixMenuGeneral = sc.nextInt();
+            choixMenuLoc = sc.nextInt();
 
-            switch (choixMenuGeneral) {
+            switch (choixMenuLoc) {
 
+                /*
+                Ajoute un nouveau locataire à la liste des locataires
+                 */
                 case 1:
                     if (liste.getNbLocataires()<500) {
                         Locataire loc = new Locataire();
@@ -39,6 +52,9 @@ public class MenuLocataires {
                     }
                     break;
 
+                /*
+                Modifie un locataire préalablement enregistré
+                 */
                 case 2:
                     if (liste.getNbLocataires()==0) {
                         System.out.println ("Il n'y a aucun locataire enregistré.\n");
@@ -49,6 +65,9 @@ public class MenuLocataires {
                     liste.sauvegarderListe();
                     break;
 
+                /*
+                Supprime un locataire de la liste de locataires sauveragdée
+                 */
                 case 3:
                     if (liste.getNbLocataires()==0) {
                         System.out.println ("Il n'y a aucun locataire enregistré.\n");
@@ -62,13 +81,45 @@ public class MenuLocataires {
                     break;
 
 
+                /*
+                Affiche une liste complète de tous les locataires les uns après les autres
+                 */
                 case 4:
                     liste.afficherListeDesLocataires();
                     break;
+
+                /*
+                Affiche la liste des locataires par type de biens
+                 */
+                case 5:
+                    break;
+
+                /*
+                Recherche et affiche la liste des locations d'un locataire donné
+                 */
+                case 6:
+                    break;
+
+                /*
+                permet du sortir du menu des locataires
+                 */
+                case 7:
+                    break;
+
+                /*
+                Gère les choix non proposés dans le menu
+                 */
+                default:
+                    System.out.print("Commande incorrecte.");
             }
-        } while (choixMenuGeneral!=7);
+        } while (choixMenuLoc!=7);
     }
 
+    /**
+     * Sous menu de l'option "modifier un locataire"
+     * @param liste la liste de locataires chargée à l'appel du menu des locataires
+     * @throws IOException
+     */
     void menuModifier (ListeLocataires liste) throws IOException {
         int identAModifier;
         int choixMenuModifier;
@@ -94,6 +145,9 @@ public class MenuLocataires {
 
             switch (choixMenuModifier) {
 
+                /*
+                Permet de changer le nom d'un locataire
+                 */
                 case 1:
                     System.out.print("Entrez le nouveau nom souhaité : ");
                     sc.nextLine();
@@ -102,6 +156,9 @@ public class MenuLocataires {
                     liste.sauvegarderListe();
                     break;
 
+                /*
+                Permet de changer l'adresse d'un locataire
+                 */
                 case 2:
                     System.out.print("Entrez la nouvelle adresse souhaitée: ");
                     sc.nextLine();
@@ -110,7 +167,10 @@ public class MenuLocataires {
                     liste.sauvegarderListe();
                     break;
 
-                case 3:
+                /*
+                Permet de changer le numéro de téléphone d'un locataire
+                 */
+                    case 3:
                     System.out.print("Entrez le nouveau numéro de téléphone souhaité : ");
                     sc.nextLine();
                     newTelephone = sc.nextLine();

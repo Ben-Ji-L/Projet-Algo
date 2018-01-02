@@ -2,35 +2,59 @@
 classe qui définit les types de biens et les actions possibles sur ces types 
 */
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.util.Scanner;
+
 class TypeDeBien {
+    private int identifiant;
+    private String nom;
+
     /**
-     *
-     * @param iDTypeBien
-     * @param nomTypeBien
+     * Construit un type de bien
      */
-    TypeDeBien (int iDTypeBien, String nomTypeBien ){
-        
+    TypeDeBien () {
+        identifiant = -1;
+        nom = "";
     }
-    
-     /**
-     * ajouter un type de bien
-     */
-    void ajouterType () {
-        
+
+    void saisirTypeDeBien () {
+        Scanner sc = new Scanner (System.in);
+
+        System.out.print ("Entrez le nom du nouveau type de bien : ");
+        nom = sc.nextLine();
     }
-    
-    //modifier un type de bien
-    void modifierType () {
-        
+
+
+    public String toString () {
+
+        return "\nIdentifiant : " + identifiant + "\n"
+                + "Nom du type de bien : " + nom + "\n";
+
     }
-    
-    //supprimer un type de bien
-    void supprimerType () {
-        
+
+    void sauvegarderTypeDeBien (DataOutputStream dos) throws IOException {
+
+        dos.writeInt(identifiant);
+        dos.writeUTF(nom);
     }
-    
-    //afficher la liste des types de biens
-    void afficherListeType () {
-        
+
+    void chargerTypeDeBien (DataInputStream dis) throws IOException {
+
+        identifiant = dis.readInt();
+        nom = dis.readUTF();
+    }
+
+    public void setIdentifiant(int identifiant) {
+        this.identifiant = identifiant;
+    }
+
+    public int getIdentifiant() {
+        return identifiant;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 }

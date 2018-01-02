@@ -1,7 +1,7 @@
-import java.util.Scanner;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.Scanner;
 
 /*
     Cette classe représente les biens immobiliers
