@@ -6,6 +6,7 @@ import java.util.Scanner;
 /*
     Cette classe représente les biens immobiliers
 
+    int id l'identifiant du bien.
     String type le type du bien (studio, appartement...)
     int numRue le numero de la rue
     String rue le nom de la rue
