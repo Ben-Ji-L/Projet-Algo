@@ -17,10 +17,6 @@ public class MenuLocataires {
         int identASupprimer;
         ListeLocataires liste = new ListeLocataires();
 
-        /*
-        Charge les locataires précédement sauvegardés dans la liste créée à l'affichage du menu
-         */
-        liste.chargerListe();
 
         do {
             System.out.print("\n__________MENU DES LOCATAIRES__________\n\n" +

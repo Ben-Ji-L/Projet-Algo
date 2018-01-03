@@ -11,11 +11,12 @@ public class ListeTypesDeBiens {
     /**
      * Constructeur d'un objet ListeTypesDeBiens
      */
-    ListeTypesDeBiens () {
+    ListeTypesDeBiens () throws IOException {
 
         tableauDeTypesDeBiens = new TypeDeBien[20];
         nbTypes = 0;
         prochainIdent = 1;
+        chargerListe();
     }
 
     /**

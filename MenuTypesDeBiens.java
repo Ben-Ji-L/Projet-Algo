@@ -11,7 +11,6 @@ public class MenuTypesDeBiens {
     void afficherMenu () throws IOException {
 
         ListeTypesDeBiens liste = new ListeTypesDeBiens();
-        liste.chargerListe();
 
         do {
             System.out.print("\n________MENU DES TYPES DE BIENS________\n\n" +

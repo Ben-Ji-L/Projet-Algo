@@ -13,11 +13,15 @@ public class ListeLocataires {
     /**
      * Construit un objet "Liste"
      */
-    ListeLocataires () {
+    ListeLocataires () throws IOException {
 
         tableauDeLocataires = new Locataire [500];
         nbLocataires = 0;
         prochainIdent = 1;
+       /*
+        Charge les locataires précédement sauvegardés dans la liste créée à l'affichage du menu
+         */
+        chargerListe();
 
     }
 
