@@ -89,7 +89,7 @@ class Locataire {
     }
 
     /**
-     * Permet de chargzer un locataire
+     * Permet de charger un locataire
      * @param dis fichier binaire à charger
      * @throws IOException
      */
@@ -127,6 +127,14 @@ class Locataire {
      */
     public int getNbBiensLoues() {
         return nbBiensLoues;
+    }
+
+    /**
+     * Permet de récupérer la liste des biens loués par le locataire
+     * @return le tableau contenant tous les biens loués
+     */
+    public int[] getListeBiens() {
+        return listeBiens;
     }
 
     /**

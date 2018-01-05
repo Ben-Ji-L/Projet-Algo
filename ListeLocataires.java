@@ -166,6 +166,43 @@ public class ListeLocataires {
     }
 
     /**
+     * Affiche la liste des biens loués par un locataire
+     * @param ident L'identifiant du locataire concerné
+     */
+    void afficherListeDesBiensPourUnLocataire (int ident) throws IOException {
+        int [] listeBiensTemporaire;
+        ListeBiens listeBiens = new ListeBiens();
+
+        for (int i=0; i<nbLocataires; i++) {
+            if (tableauDeLocataires[i].getIdentifiant()==ident) {
+                if (tableauDeLocataires[i].getNbBiensLoues()==0) {
+                    System.out.print ("Ce locataire n'a pas de biens en cours de location.");
+                }
+                else {
+                    listeBiensTemporaire = tableauDeLocataires[i].getListeBiens();
+                    for (int j=0; j<tableauDeLocataires[i].getNbBiensLoues(); j++) {
+                        listeBiens.afficherBienParId(listeBiensTemporaire[j]);
+                        System.out.print ("\n");
+                    }
+                }
+                return;
+            }
+        }
+    }
+
+    void afficherLocatairesLouantAuMoinsUnBien () throws IOException {
+        ListeBiens listeBiens = new ListeBiens();
+
+        for (int i=0; i<nbLocataires; i++) {
+            if (tableauDeLocataires[i].getNbBiensLoues()>=1) {
+                System.out.print (tableauDeLocataires[i].affichageSimplifieLocataire() + "\n");
+                System.out.print ("Nombre de biens loués : " + tableauDeLocataires[i].getNbBiensLoues() + "\n\n");
+                afficherListeDesBiensPourUnLocataire(tableauDeLocataires[i].getIdentifiant());
+            }
+        }
+    }
+
+    /**
      * Génère un identifiant unique
      * @return un identifiant unique
      */
