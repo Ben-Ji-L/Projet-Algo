@@ -10,7 +10,6 @@ public class MenuBiens {
         int numChoisi;
         int id;
         ListeBiens listeB = new ListeBiens();
-        listeB.chargerListe();
 
         ListeLocataires ListeLoc = new ListeLocataires();
 
