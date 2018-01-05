@@ -15,6 +15,7 @@ public class MenuLocataires {
 
         int choixMenuLoc;
         int identASupprimer;
+        int identPourAffichage;
         ListeLocataires liste = new ListeLocataires();
 
 
@@ -94,6 +95,15 @@ public class MenuLocataires {
                 Recherche et affiche la liste des locations d'un locataire donné
                  */
                 case 6:
+                    if (liste.getNbLocataires()==0) {
+                        System.out.println ("Il n'y a aucun locataire enregistré.\n");
+                        return;
+                    }
+                    liste.afficherListeSimplifiee();
+                    System.out.print ("Entrez le numéro identifiant du locataire dont vous souhaitez voir les locations : ");
+                    identPourAffichage = sc.nextInt();
+                    liste.afficherListeDesBiensPourUnLocataire(identPourAffichage);
+                    liste.sauvegarderListe();
                     break;
 
                 /*
