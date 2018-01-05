@@ -20,7 +20,7 @@ public class ListeBiens {
     ListeBiens () {
 
         // Le tableau qui contiendra les biens
-        tabBiens = new Bien[500];
+        tabBiens = new Bien[100];
         nbBiens = 0;
         nextId = 1;
     }
@@ -220,5 +220,13 @@ public class ListeBiens {
             tabBiens[i] = bien;
         }
         dis.close();
+    }
+
+    public void afficherBienParId(int id) {
+        for (int i=0; i<nbBiens; i++) {
+            if (tabBiens[i].getId() == id) {
+                tabBiens[i].toString();
+            }
+        }
     }
 }

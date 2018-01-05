@@ -21,6 +21,7 @@ class Bien {
     private String rue;
     private int cp;
     private String ville;
+    private int idLoc;
 
     public void setId(int id) {
         this.id = id;
@@ -36,6 +37,7 @@ class Bien {
         rue = "";
         cp = -1;
         ville = "";
+        idLoc = -1;
     }
 
     void saisirBien () {
@@ -57,6 +59,11 @@ class Bien {
 
         System.out.print ("Entrez la ville du bien : ");
         ville = sc.nextLine();
+
+        ListeLocataires listeLoc = new ListeLocataires();
+        listeLoc.afficherListeSimplifiee();
+        System.out.print ("Entrez l'identifiant du locataire du bien : ");
+        idLoc = sc.nextInt();
     }
 
     public String toString () {
@@ -65,12 +72,13 @@ class Bien {
                 + "Numero de rue : " + numRue + "\n"
                 + "Rue : " + rue + "\n"
                 + "Code postal : " + cp + "\n"
-                + "Ville : " + ville;
+                + "Ville : " + ville + "\n"
+                + "Identifiant du locataire : " + idLoc + "\n";
     }
 
     String affichageSimplifieBien () {
 
-        return "\n" + id + " : " + type + numRue + " " + rue + " " + cp + " " + ville;
+        return "\n" + id + " : " + type + numRue + " " + rue + " " + cp + " " + ville + " " + idLoc;
     }
 
     void sauvegarderBien(DataOutputStream dos) throws IOException {
@@ -80,6 +88,7 @@ class Bien {
         dos.writeUTF(rue);
         dos.writeInt(cp);
         dos.writeUTF(ville);
+        dos.writeInt(idLoc);
     }
 
     void chargerBien(DataInputStream dis) throws IOException {
@@ -89,6 +98,7 @@ class Bien {
         rue = dis.readUTF();
         cp = dis.readInt();
         ville = dis.readUTF();
+        idLoc = dis.readInt();
     }
 
     public void setType(String type) {
@@ -111,13 +121,7 @@ class Bien {
         this.ville = ville;
     }
 
-    /*
-        Dis si le bien est loué ou non
-
-        return boolean true si le bien est loué, false si non
-    */
-    boolean estLoue () {
-        return false;
-
+    public void setIdLoc(int idLoc) {
+        this.idLoc = idLoc;
     }
 }

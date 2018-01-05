@@ -10,8 +10,9 @@ public class MenuBiens {
         int numChoisi;
         int id;
         ListeBiens listeB = new ListeBiens();
-
         listeB.chargerListe();
+
+        ListeLocataires ListeLoc = new ListeLocataires();
 
         do {
             System.out.print("\n__________MENU DES BIENS__________\n\n" +
@@ -26,10 +27,14 @@ public class MenuBiens {
 
             switch (numChoisi) {
                 case 1:
-                    Bien bien = new Bien();
-                    bien.saisirBien();
-                    listeB.ajouterBien(bien);
-                    listeB.sauvegarderListe();
+                    if (listeB.getNbBiens() < 100) {
+                        Bien bien = new Bien();
+                        bien.saisirBien();
+                        listeB.ajouterBien(bien);
+                        listeB.sauvegarderListe();
+                    } else {
+                        System.out.println("Il y a trop de biens enregistrés !");
+                    }
                     break;
 
                 case 2:
@@ -76,6 +81,7 @@ public class MenuBiens {
         String newRue;
         int newCp;
         String newVille;
+        int newIdLoc;
 
         System.out.print("Entrez le numéro identifiant du bien à modifier : ");
         oldId = sc.nextInt();
@@ -88,7 +94,8 @@ public class MenuBiens {
                 "[3] Modifier le nom de la rue\n" +
                 "[4] Modifier le code postal\n" +
                 "[5] Modifier le nom de la ville\n" +
-                "[6] Modifications terminées\n\n" +
+                "[6] Modifier l'identifiant du locataire\n" +
+                "[7] Modifications terminées\n\n" +
                 "Entrez le numéro de l'action souhaitée : ");
             choixMenuModif = sc.nextInt();
 
@@ -132,8 +139,14 @@ public class MenuBiens {
                     listeB.modifierVille(oldId, newVille);
                     listeB.sauvegarderListe();
                     break;
+
+                case 6:
+                    ListeLocataires listeLoc = new ListeLocataires();
+                    listeLoc.afficherListeSimplifiee();
+                    System.out.print("Entrez le nouvel identifiant du locataire");
+                    sc.nextInt();
             }
-        } while(choixMenuModif != 6);
+        } while(choixMenuModif != 7);
 
     }
 
