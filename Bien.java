@@ -59,11 +59,6 @@ class Bien {
 
         System.out.print ("Entrez la ville du bien : ");
         ville = sc.nextLine();
-
-        ListeLocataires listeLoc = new ListeLocataires();
-        listeLoc.afficherListeSimplifiee();
-        System.out.print ("Entrez l'identifiant du locataire du bien : ");
-        idLoc = sc.nextInt();
     }
 
     public String toString () {
