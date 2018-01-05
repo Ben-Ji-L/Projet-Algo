@@ -185,7 +185,7 @@ public class ListeBiens {
      * @throws IOException
      */
     void sauvegarderListe () throws IOException {
-        String fichier = "Biens";
+        String fichier = "Biens.bin";
         DataOutputStream dos;
         dos = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(fichier)));
 
@@ -203,7 +203,7 @@ public class ListeBiens {
      * @throws IOException
      */
     void chargerListe () throws IOException {
-        String fichier = "Biens";
+        String fichier = "Biens.bin";
 
         File file = new File(fichier);
         if (!file.exists()) {
