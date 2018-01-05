@@ -224,10 +224,31 @@ public class ListeBiens {
     }
 
     public void afficherBienParId(int id) {
-        for (int i=0; i<nbBiens; i++) {
+        for (int i=0; i< nbBiens; i++) {
             if (tabBiens[i].getId() == id) {
                 System.out.print(tabBiens[i].toString());
             }
         }
+    }
+
+    public int[] toutLesBiensPourUnType (int idType) {
+
+        // on crée un tableau de 100 int car c'estla taille max
+        int[] tabIdBiens = new int[100];
+        int compteurBiensTrouve = 0;
+
+
+        for (int i=0; i< nbBiens; i++) {
+            if (tabBiens[i].getIdType() == idType) {
+                tabIdBiens[compteurBiensTrouve] = tabBiens[i].getId();
+                compteurBiensTrouve++;
+            }
+        }
+
+        int[] tabResultat = new int[compteurBiensTrouve];
+        for (int j = 0; j < tabResultat.length; j++) {
+            tabResultat[j] = tabIdBiens[j];
+        }
+        return tabResultat;
     }
 }

@@ -22,6 +22,7 @@ class Bien {
     private int cp;
     private String ville;
     private int idLoc;
+    private int idType;
 
     public void setId(int id) {
         this.id = id;
@@ -38,13 +39,16 @@ class Bien {
         cp = -1;
         ville = "";
         idLoc = -1;
+        idType = -1;
     }
 
-    void saisirBien () {
+    void saisirBien () throws IOException {
         Scanner sc = new Scanner (System.in);
 
-        System.out.print ("Entrez le type du bien : ");
-        type = sc.nextLine();
+        ListeTypesDeBiens listeB = new ListeTypesDeBiens();
+        listeB.afficherListeDesTypesDeBien();
+        System.out.print ("Entrez l'identifiant du type de bien : ");
+        idType = sc.nextInt();
 
         System.out.print ("Entrez le numero de rue du bien : ");
         numRue = sc.nextInt();
@@ -116,7 +120,15 @@ class Bien {
         this.ville = ville;
     }
 
+    public int getIdLoc() {
+        return idLoc;
+    }
+
     public void setIdLoc(int idLoc) {
         this.idLoc = idLoc;
+    }
+
+    public int getIdType () {
+        return idType;
     }
 }
