@@ -17,7 +17,7 @@ public class ListeBiens {
         return nbBiens;
     }
 
-    ListeBiens () {
+    ListeBiens () throws  IOException {
 
         // Le tableau qui contiendra les biens
         tabBiens = new Bien[100];
