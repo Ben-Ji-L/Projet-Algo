@@ -23,6 +23,7 @@ public class ListeBiens {
         tabBiens = new Bien[100];
         nbBiens = 0;
         nextId = 1;
+        chargerListe();
     }
 
     void afficherListeDesBiens () {
@@ -225,7 +226,7 @@ public class ListeBiens {
     public void afficherBienParId(int id) {
         for (int i=0; i<nbBiens; i++) {
             if (tabBiens[i].getId() == id) {
-                tabBiens[i].toString();
+                System.out.print(tabBiens[i].toString());
             }
         }
     }
