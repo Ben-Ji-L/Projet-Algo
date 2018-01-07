@@ -16,7 +16,10 @@ public class MenuLocataires {
         int choixMenuLoc;
         int identASupprimer;
         int identPourAffichage;
-        ListeLocataires liste = new ListeLocataires();
+        int identPourType;
+        ListeLocataires listeLocataires = new ListeLocataires();
+        ListeTypesDeBiens listeTypesDeBiens = new ListeTypesDeBiens();
+        ListeBiens listeBiens = new ListeBiens();
 
 
         do {
@@ -35,14 +38,14 @@ public class MenuLocataires {
             switch (choixMenuLoc) {
 
                 /*
-                Ajoute un nouveau locataire à la liste des locataires
+                Ajoute un nouveau locataire à la listeLocataires des locataires
                  */
                 case 1:
-                    if (liste.getNbLocataires()<500) {
+                    if (listeLocataires.getNbLocataires()<500) {
                         Locataire loc = new Locataire();
                         loc.saisirLocataire();
-                        liste.ajouterLocataire(loc);
-                        liste.sauvegarderListe();
+                        listeLocataires.ajouterLocataire(loc);
+                        listeLocataires.sauvegarderListe();
                     }
                     else {
                         System.out.println ("Vous ne pouvez plus ajouter de locataire, le nombre maximal a déjà été atteint.");
@@ -53,57 +56,63 @@ public class MenuLocataires {
                 Modifie un locataire préalablement enregistré
                  */
                 case 2:
-                    if (liste.getNbLocataires()==0) {
+                    if (listeLocataires.getNbLocataires()==0) {
                         System.out.println ("Il n'y a aucun locataire enregistré.\n");
                         return;
                     }
 
-                    menuModifier(liste);
-                    liste.sauvegarderListe();
+                    menuModifier(listeLocataires);
+                    listeLocataires.sauvegarderListe();
                     break;
 
                 /*
-                Supprime un locataire de la liste de locataires sauveragdée
+                Supprime un locataire de la listeLocataires de locataires sauveragdée
                  */
                 case 3:
-                    if (liste.getNbLocataires()==0) {
+                    if (listeLocataires.getNbLocataires()==0) {
                         System.out.println ("Il n'y a aucun locataire enregistré.\n");
                         return;
                     }
-                    liste.afficherListeSimplifiee();
+                    listeLocataires.afficherListeSimplifiee();
                     System.out.print ("Entrez le numéro identifiant du locataire à supprimer : ");
                     identASupprimer = sc.nextInt();
-                    liste.supprimerLocataire(identASupprimer);
-                    liste.sauvegarderListe();
+                    listeLocataires.supprimerLocataire(identASupprimer);
+                    listeLocataires.sauvegarderListe();
                     break;
 
 
                 /*
-                Affiche une liste complète de tous les locataires les uns après les autres
+                Affiche une listeLocataires complète de tous les locataires les uns après les autres
                  */
                 case 4:
-                    liste.afficherListeDesLocataires();
+                    listeLocataires.afficherListeDesLocataires();
                     break;
 
                 /*
-                Affiche la liste des locataires par type de biens
+                Affiche la listeLocataires des locataires par type de biens
                  */
                 case 5:
+                    listeTypesDeBiens.afficherListeDesTypesDeBien();
+                    System.out.print ("Entrez l'identifiant du type de bien dont vous souhaitez connaître les locataires : ");
+                    identPourType = sc.nextInt();
+
+                    System.out.print("\n\nLes locataires louant un bien de ce type sont : \n");
+                    listeLocataires.afficherTousLesLocatairesPourUnTypeDeBien(identPourType);
                     break;
 
                 /*
-                Recherche et affiche la liste des locations d'un locataire donné
+                Recherche et affiche la listeLocataires des locations d'un locataire donné
                  */
                 case 6:
-                    if (liste.getNbLocataires()==0) {
+                    if (listeLocataires.getNbLocataires()==0) {
                         System.out.println ("Il n'y a aucun locataire enregistré.\n");
                         return;
                     }
-                    liste.afficherListeSimplifiee();
+                    listeLocataires.afficherListeSimplifiee();
                     System.out.print ("Entrez le numéro identifiant du locataire dont vous souhaitez voir les locations : ");
                     identPourAffichage = sc.nextInt();
-                    liste.afficherListeDesBiensPourUnLocataire(identPourAffichage);
-                    liste.sauvegarderListe();
+                    listeLocataires.afficherListeDesBiensPourUnLocataire(identPourAffichage);
+                    listeLocataires.sauvegarderListe();
                     break;
 
                 /*

@@ -18,9 +18,8 @@ public class ListeLocataires {
         tableauDeLocataires = new Locataire [500];
         nbLocataires = 0;
         prochainIdent = 1;
-       /*
-        Charge les locataires précédement sauvegardés dans la liste créée à l'affichage du menu
-         */
+
+        //Charge les locataires précédement sauvegardés dans la liste créée à l'affichage du menu
         chargerListe();
 
     }
@@ -47,6 +46,7 @@ public class ListeLocataires {
 
         boolean trouve = false;
 
+        //On parcourt la liste des locataires jusqu'à l'avant dernier locataire pour trouver le locataire à supprimer
         for (int i=0; i<nbLocataires-1; i++) {
             if (tableauDeLocataires[i].getIdentifiant() == ident) {
                 if (tableauDeLocataires[i].getNbBiensLoues()!=0) {
@@ -55,10 +55,15 @@ public class ListeLocataires {
                 }
                 trouve = true;
             }
+            //Si on a trouvé le locataire à supprimer, on l'écrase en le remplaçant
+            // par le locataire qui suit, et ainsi de suite jusqu'à la fin de la boucle de recherche
             if (trouve) {
                 tableauDeLocataires[i]=tableauDeLocataires[i+1];
             }
         }
+
+        //Si on n'a pas trouvé le locataire à supprimer en parcourant la liste jusqu'à l'avant-dernier,
+        //on cherche s'il ne se trouve pas en dernière position de la liste
         if (!trouve) {
             if (tableauDeLocataires[nbLocataires-1].getIdentifiant()==ident) {
                 if (tableauDeLocataires[nbLocataires-1].getNbBiensLoues()!=0) {
@@ -69,6 +74,8 @@ public class ListeLocataires {
             }
         }
 
+        //Une fois trouvé et les modifications à faire effectuées, on ignore la dernière case du tableau
+        //et on diminue le nombre de locataires de 1 pour la "supprimer"
         if (trouve) {
             tableauDeLocataires[nbLocataires-1] = null;
             nbLocataires --;
@@ -130,11 +137,16 @@ public class ListeLocataires {
     void afficherListeDesLocataires () {
         String resultat = "";
 
-        for (int i=0; i<nbLocataires; i++) {
-
-            resultat += tableauDeLocataires [i].toString() + "\n";
+        if (nbLocataires==0) {
+            System.out.print ("Il n'y a pas encore de locataire enregistré.\n");
         }
-        System.out.println (resultat);
+        else {
+            for (int i = 0; i < nbLocataires; i++) {
+
+                resultat += tableauDeLocataires[i].toString() + "\n";
+            }
+            System.out.println (resultat);
+        }
     }
 
     /**
@@ -173,13 +185,17 @@ public class ListeLocataires {
         int [] listeBiensTemporaire;
         ListeBiens listeBiens = new ListeBiens();
 
+        //On parcourt la liste des locataires pour trouver le locataire demandé à partir de son identifiant
         for (int i=0; i<nbLocataires; i++) {
             if (tableauDeLocataires[i].getIdentifiant()==ident) {
                 if (tableauDeLocataires[i].getNbBiensLoues()==0) {
                     System.out.print ("Ce locataire n'a pas de biens en cours de location.");
                 }
                 else {
+                    //On stocke la liste des identifiants des biens du locataire identifié, dans une liste temporaire
                     listeBiensTemporaire = tableauDeLocataires[i].getListeBiens();
+                    //En fonction du nombre de biens loués par ce locataire, on parcourt la liste
+                    //et on affiche chaque bien à l'aide d'une méthode qui affiche un bien à partir de son identifiant
                     for (int j=0; j<tableauDeLocataires[i].getNbBiensLoues(); j++) {
                         listeBiens.afficherBienParId(listeBiensTemporaire[j]);
                         System.out.print ("\n");
@@ -190,14 +206,40 @@ public class ListeLocataires {
         }
     }
 
-    void afficherLocatairesLouantAuMoinsUnBien () throws IOException {
+    /**
+     * Affiche les locataires (Identifiant, nom) qui louent au moins un bien
+     * @param afficherBiens dit si on affiche ou pas la liste détaillée de ses biens, ou simplement le nombre total de biens loués
+     * @throws IOException
+     */
+    void afficherLocatairesLouantAuMoinsUnBien (boolean afficherBiens) throws IOException {
         ListeBiens listeBiens = new ListeBiens();
 
+        //On parcourt la liste des locataires
         for (int i=0; i<nbLocataires; i++) {
+            //On regarde si le nombre de biens loués par le locataire à l'indice "i" est au moins égal à 1
             if (tableauDeLocataires[i].getNbBiensLoues()>=1) {
                 System.out.print (tableauDeLocataires[i].affichageSimplifieLocataire() + "\n");
                 System.out.print ("Nombre de biens loués : " + tableauDeLocataires[i].getNbBiensLoues() + "\n\n");
-                afficherListeDesBiensPourUnLocataire(tableauDeLocataires[i].getIdentifiant());
+
+                //Si le booleen est à "true", on affiche aussi la liste de tous ses biens (pour répondre à une autre requête)
+                if (afficherBiens) {
+                    afficherListeDesBiensPourUnLocataire(tableauDeLocataires[i].getIdentifiant());
+                }
+            }
+        }
+    }
+
+    /**
+     * Affiche la liste simplifiée des locataire en fonction d'un identifiant de type de bien
+     * @param identType l'identifiant du type de bien recherché
+     * @throws IOException
+     */
+    void afficherTousLesLocatairesPourUnTypeDeBien (int identType) throws IOException {
+
+        for (int i=0; i<nbLocataires; i++) {
+            //On utilise une fonction booleenne de la classe locataire, disant s'il loue ou pas ce type de bien
+            if (tableauDeLocataires [i].loueCeTypeDeBien(identType)) {
+                System.out.print (tableauDeLocataires [i].affichageSimplifieLocataire() + "\n");
             }
         }
     }
