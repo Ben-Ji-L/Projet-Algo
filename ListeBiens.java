@@ -168,16 +168,6 @@ public class ListeBiens {
         }
     }
 
-    void modifierIdLoc(int id, int newIdLoc) {
-
-        for (int i = 0; i < nbBiens; i++) {
-            if (tabBiens[i].getId() == id) {
-                tabBiens[i].setIdLoc(newIdLoc);
-                return;
-            }
-        }
-    }
-
     /**
      * Méthode permettant de générer un identifiant
      * @return id l'identifiant crée

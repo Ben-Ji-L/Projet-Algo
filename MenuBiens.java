@@ -93,8 +93,7 @@ public class MenuBiens {
                 "[3] Modifier le nom de la rue\n" +
                 "[4] Modifier le code postal\n" +
                 "[5] Modifier le nom de la ville\n" +
-                "[6] Modifier l'identifiant du locataire\n" +
-                "[7] Modifications terminées\n\n" +
+                "[6] Modifications terminées\n\n" +
                 "Entrez le numéro de l'action souhaitée : ");
             choixMenuModif = sc.nextInt();
 
@@ -138,18 +137,8 @@ public class MenuBiens {
                     listeB.modifierVille(oldId, newVille);
                     listeB.sauvegarderListe();
                     break;
-
-                case 6:
-                    ListeLocataires listeLoc = new ListeLocataires();
-                    listeLoc.afficherListeSimplifiee();
-                    System.out.print("Entrez le nouvel identifiant du locataire : ");
-                    newIdLoc = sc.nextInt();
-                    listeB.modifierIdLoc(oldId, newIdLoc);
-                    listeB.sauvegarderListe();
-                    break;
-
             }
-        } while(choixMenuModif != 7);
+        } while(choixMenuModif != 6);
 
     }
 
