@@ -261,4 +261,13 @@ public class ListeBiens {
         }
         return -1;
     }
+
+    void afficherLaListeDesBiensLoués () {
+
+        for (int i=0; i<nbBiens; i++) {
+            if (tabBiens[i].getIdLoc() != -1) {
+                System.out.print (tabBiens[i].affichageSimplifieBien());
+            }
+        }
+    }
 }
