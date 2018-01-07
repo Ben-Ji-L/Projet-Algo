@@ -16,9 +16,7 @@ public class MenuLocataires {
         int choixMenuLoc;
         int identASupprimer;
         int identPourAffichage;
-        int identPourType;
         ListeLocataires liste = new ListeLocataires();
-        ListeTypesDeBiens listeTypesDeBiens = new ListeTypesDeBiens();
 
 
         do {
@@ -91,10 +89,6 @@ public class MenuLocataires {
                 Affiche la liste des locataires par type de biens
                  */
                 case 5:
-                    listeTypesDeBiens.afficherListeDesTypesDeBien();
-                    System.out.print ("Entrez l'identifiant du type de bien dont vous souhaitez connaître les locataires : ");
-                    identPourType = sc.nextInt();
-
                     break;
 
                 /*

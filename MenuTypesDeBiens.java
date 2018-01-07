@@ -60,12 +60,7 @@ public class MenuTypesDeBiens {
                     break;
 
                 case 4:
-                    if (liste.getNbTypes()>0) {
-                        liste.afficherListeDesTypesDeBien();
-                    }
-                    else {
-                        System.out.print ("Il n'y a pas encore de type de biens enregistré.");
-                    }
+                    liste.afficherListeDesTypesDeBien();
                     break;
 
                 case 5:
