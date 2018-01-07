@@ -71,6 +71,65 @@ class Locataire {
         return "\n" + identifiant + " : " + nom;
     }
 
+    boolean loueCeTypeDeBien (int identType) throws IOException {
+        ListeBiens listeDeBiens = new ListeBiens();
+
+        for (int i=0; i<nbBiensLoues; i++) {
+            if (listeDeBiens.getIDTypeDeBien(listeBiens [i]) == identType) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Permet d'ajouter un bien aux biens loués un locataire
+     * @param identBien Identifiant du bien
+     */
+    void ajouterUnBien (int identBien) {
+        listeBiens [nbBiensLoues] = identBien;
+        nbBiensLoues ++;
+    }
+
+    /**
+     * Permet de supprimer un bien des la liste des biens loués d'un locataire
+     * @param identBien Identifiant du bien à supprimer
+     */
+    void supprimerUnBien (int identBien) {
+        boolean trouve = false;
+
+        //On parcourt la liste des biens loués jusqu'à l'avant dernier bien pour trouver le bien à supprimer
+        for (int i=0; i<nbBiensLoues-1; i++) {
+            if (listeBiens[i] == identBien) {
+                trouve = true;
+            }
+            //Si on a trouvé le bien à supprimer, on l'écrase en le remplaçant
+            // par le bien qui suit, et ainsi de suite jusqu'à la fin de la boucle de recherche
+            if (trouve) {
+                listeBiens[i] = listeBiens[i+1];
+            }
+        }
+
+        //Si on n'a pas trouvé le bien à supprimer en parcourant la liste jusqu'à l'avant-dernier,
+        //on cherche s'il ne se trouve pas en dernière position de la liste
+        if (!trouve) {
+            if (listeBiens[nbBiensLoues-1] == identBien) {
+                trouve = true;
+            }
+        }
+
+        //Une fois trouvé et les modifications à faire effectuées, on ignore la dernière case du tableau
+        //et on diminue le nombre de biens de 1 pour la "supprimer"
+        if (trouve) {
+            listeBiens[nbBiensLoues-1] = -1;
+            nbBiensLoues --;
+            System.out.println ("Locataire supprimé.\n");
+        }
+        else {
+            System.out.println ("Identifiant inconnu.\n");
+        }
+    }
+
     /**
      * Permet de sauvegarder un locataire
      * @param dos fichier binaire de sauvegarde

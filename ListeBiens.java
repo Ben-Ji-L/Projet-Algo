@@ -251,4 +251,14 @@ public class ListeBiens {
         }
         return tabResultat;
     }
+
+    int getIDTypeDeBien (int identBien) {
+
+        for (int i=0; i<nbBiens; i++) {
+            if (tabBiens [i].getId() == identBien) {
+                return tabBiens [i].getIdType();
+            }
+        }
+        return -1;
+    }
 }

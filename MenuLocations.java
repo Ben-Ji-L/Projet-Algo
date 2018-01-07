@@ -1,13 +1,18 @@
 /**
  * Classe de menu gérant toutes les options de location
  */
+import java.io.IOException;
 import java.util.Scanner;
 
 public class MenuLocations {
     Scanner sc = new Scanner(System.in);
     int choixMenuLocations;
+    ListeLocataires listeLocataires = new ListeLocataires();
 
-    void afficherMenu () {
+    public MenuLocations() throws IOException {
+    }
+
+    void afficherMenu () throws IOException {
 
         do {
             System.out.print("\n______MENU DES LOCATIONS______\n\n" +
@@ -34,9 +39,11 @@ public class MenuLocations {
                     break;
 
                 case 4:
+                    listeLocataires.afficherLocatairesLouantAuMoinsUnBien(true);
                     break;
 
                 case 5:
+                    listeLocataires.afficherLocatairesLouantAuMoinsUnBien(false);
                     break;
 
                 case 6:
