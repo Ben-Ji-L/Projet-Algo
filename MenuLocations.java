@@ -8,6 +8,7 @@ public class MenuLocations {
     Scanner sc = new Scanner(System.in);
     int choixMenuLocations;
     ListeLocataires listeLocataires = new ListeLocataires();
+    ListeBiens listeDeBiens = new ListeBiens();
 
     public MenuLocations() throws IOException {
     }
@@ -36,6 +37,7 @@ public class MenuLocations {
                     break;
 
                 case 3:
+                    listeDeBiens.afficherLaListeDesBiensLoués();
                     break;
 
                 case 4:
