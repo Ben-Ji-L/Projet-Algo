@@ -306,4 +306,16 @@ public class ListeLocataires {
     public int getNbLocataires() {
         return nbLocataires;
     }
+
+    void louer(int idBien, int idLocataire) {
+
+        for (int i=0; i < nbLocataires; i++) {
+            if (tableauDeLocataires[i].getIdentifiant() == idLocataire) {
+                tableauDeLocataires[i].ajouterUnBien(idBien);
+                Bien bien = new Bien();
+                bien.setIdLoc(idLocataire);
+
+            }
+        }
+    }
 }

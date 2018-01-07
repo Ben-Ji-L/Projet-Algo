@@ -30,6 +30,23 @@ public class MenuLocations {
             switch (choixMenuLocations) {
 
                 case 1:
+                    ListeBiens listeB = new ListeBiens();
+                    if (listeB.getNbBiens() == 0) {
+                        System.out.println("Aucun Biens enregistré !");
+                        break;
+                    }
+                    listeB.afficherListeSimplifiee();
+                    System.out.print("Entrez l'identifiant du bien à louer : ");
+                    int idBien = sc.nextInt();
+
+                    ListeLocataires listeLoc = new ListeLocataires();
+                    listeLoc.afficherListeSimplifiee();
+                    System.out.print("Entrez l'identifiant du locataire : ");
+                    int idLoc = sc.nextInt();
+
+                    listeLocataires.louer(idBien, idLoc);
+
+
                     break;
 
                 case 2:
