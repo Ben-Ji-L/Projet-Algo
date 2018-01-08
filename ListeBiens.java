@@ -255,8 +255,8 @@ public class ListeBiens {
     int getIDTypeDeBien (int identBien) {
 
         for (int i=0; i<nbBiens; i++) {
-            if (tabBiens [i].getId() == identBien) {
-                return tabBiens [i].getIdType();
+            if (tabBiens[i].getId() == identBien) {
+                return tabBiens[i].getIdType();
             }
         }
         return -1;
@@ -267,6 +267,15 @@ public class ListeBiens {
         for (int i=0; i<nbBiens; i++) {
             if (tabBiens[i].getIdLoc() != -1) {
                 System.out.print (tabBiens[i].affichageSimplifieBien());
+            }
+        }
+    }
+    
+    void louer (int idBien, int idLocataire) {
+    	
+    	for (int i=0; i < nbBiens; i++) {
+            if (tabBiens[i].getId() == idBien) {
+                tabBiens[i].setIdLoc(idLocataire);
             }
         }
     }

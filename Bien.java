@@ -46,33 +46,46 @@ class Bien {
         Scanner sc = new Scanner (System.in);
 
         ListeTypesDeBiens listeB = new ListeTypesDeBiens();
-        listeB.afficherListeDesTypesDeBien();
-        System.out.print ("Entrez l'identifiant du type de bien : ");
-        idType = sc.nextInt();
+        
+        if (idType != -1) {
+        	
+        	listeB.afficherListeDesTypesDeBien();
+        	System.out.print ("Entrez l'identifiant du type de bien : ");
+        	idType = sc.nextInt();
+        	System.out.print ("Entrez le numero de rue du bien : ");
+            numRue = sc.nextInt();
+            sc.nextLine();
 
-        System.out.print ("Entrez le numero de rue du bien : ");
-        numRue = sc.nextInt();
-        sc.nextLine();
+            System.out.print ("Entrez la rue du bien : ");
+            rue = sc.nextLine();
 
-        System.out.print ("Entrez la rue du bien : ");
-        rue = sc.nextLine();
+            System.out.print ("Entrez le code postal du bien : ");
+            cp = sc.nextInt();
+            sc.nextLine();
 
-        System.out.print ("Entrez le code postal du bien : ");
-        cp = sc.nextInt();
-        sc.nextLine();
-
-        System.out.print ("Entrez la ville du bien : ");
-        ville = sc.nextLine();
+            System.out.print ("Entrez la ville du bien : ");
+            ville = sc.nextLine();
+            
+        } else {
+        	System.out.println("Il n'y a aucun type de biens enregistré.");
+        } 
     }
 
     public String toString () {
 
-        return "\nType : " + type + "\n"
+    	String resultat = "";
+        resultat = "\nType : " + type + "\n"
                 + "Numero de rue : " + numRue + "\n"
                 + "Rue : " + rue + "\n"
                 + "Code postal : " + cp + "\n"
-                + "Ville : " + ville + "\n"
-                + "Identifiant du locataire : " + idLoc + "\n";
+                + "Ville : " + ville + "\n";
+        
+        if (idLoc != -1) {
+        	resultat += "Loué\n";
+        } else {
+        	resultat += "Non loué\n";
+        }
+        return resultat;        
     }
 
     String affichageSimplifieBien () {

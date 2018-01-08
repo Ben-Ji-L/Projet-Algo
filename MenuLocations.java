@@ -31,21 +31,20 @@ public class MenuLocations {
             switch (choixMenuLocations) {
 
                 case 1:
-                    ListeBiens listeB = new ListeBiens();
-                    if (listeB.getNbBiens() == 0) {
+                    if (listeDeBiens.getNbBiens() == 0) {
                         System.out.println("Aucun Biens enregistré !");
                         break;
                     }
-                    listeB.afficherListeSimplifiee();
+                    listeDeBiens.afficherListeSimplifiee();
                     System.out.print("Entrez l'identifiant du bien à louer : ");
                     int idBien = sc.nextInt();
 
-                    ListeLocataires listeLoc = new ListeLocataires();
-                    listeLoc.afficherListeSimplifiee();
+                    listeLocataires.afficherListeSimplifiee();
                     System.out.print("Entrez l'identifiant du locataire : ");
                     int idLoc = sc.nextInt();
 
                     listeLocataires.louer(idBien, idLoc);
+                    listeDeBiens.louer(idBien, idLoc);
 
 
                     break;
@@ -54,15 +53,15 @@ public class MenuLocations {
                     break;
 
                 case 3:
-                    listeDeBiens.afficherLaListeDesBiensLoués();
+                	listeDeBiens.afficherLaListeDesBiensLoués();
                     break;
 
                 case 4:
-                    listeLocataires.afficherLocatairesLouantAuMoinsUnBien(true);
+                	listeLocataires.afficherLocatairesLouantAuMoinsUnBien(true);
                     break;
 
                 case 5:
-                    listeLocataires.afficherLocatairesLouantAuMoinsUnBien(false);
+                	listeLocataires.afficherLocatairesLouantAuMoinsUnBien(false);
                     break;
 
                 case 6:
