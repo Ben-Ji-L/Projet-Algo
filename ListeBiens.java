@@ -25,7 +25,10 @@ public class ListeBiens {
         nextId = 1;
         chargerListe();
     }
-
+    
+    /**
+     * Affiche la liste des biens
+     */
     void afficherListeDesBiens () {
         String resultat = "";
 
@@ -223,6 +226,10 @@ public class ListeBiens {
         dis.close();
     }
 
+    /**
+     * Affiche  un bien selon l'identifiant passé en paramétre.
+     * @param id l'identifiant
+     */
     public void afficherBienParId(int id) {
         for (int i=0; i< nbBiens; i++) {
             if (tabBiens[i].getId() == id) {
@@ -231,6 +238,11 @@ public class ListeBiens {
         }
     }
 
+    /**
+     * Renvoie tout les biens d'un meme type.
+     * @param idType l'identifiant du type de bien
+     * @return un tableau contenant les biens du type passé en paramétre
+     */
     public int[] toutLesBiensPourUnType (int idType) {
 
         // on crée un tableau de 100 int car c'estla taille max
@@ -251,8 +263,12 @@ public class ListeBiens {
         }
         return tabResultat;
     }
-
-    int getIDTypeDeBien (int identBien) {
+    /**
+     * Permet de récuperer l'identifiant du type du bien
+     * @param identBien l'identifiant du bien
+     * @return l'identifiant du type ou -1
+     */
+    public int getIDTypeDeBien (int identBien) {
 
         for (int i=0; i<nbBiens; i++) {
             if (tabBiens[i].getId() == identBien) {
@@ -262,6 +278,10 @@ public class ListeBiens {
         return -1;
     }
 
+    
+    /**
+     * Affiche la liste des biens loués
+     */
     void afficherLaListeDesBiensLoues() {
 
         for (int i=0; i<nbBiens; i++) {
@@ -271,6 +291,11 @@ public class ListeBiens {
         }
     }
     
+    /**
+     * Permet de louer un bien
+     * @param idBien l'identifiant du bien
+     * @param idLocataire l'identifiant du locataire
+     */
     void louer (int idBien, int idLocataire) {
     	
     	for (int i=0; i < nbBiens; i++) {
@@ -280,6 +305,10 @@ public class ListeBiens {
         }
     }
     
+    /**
+     * Permet de libérer un bien
+     * @param idBien l'identifiant du bien
+     */
     void liberer(int idBien) {
     	for (int i=0; i < nbBiens; i++) {
             if (tabBiens[i].getId() == idBien) {
