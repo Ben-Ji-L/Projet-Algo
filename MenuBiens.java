@@ -27,6 +27,7 @@ public class MenuBiens {
             switch (numChoisi) {
                 case 1:
                     if (listeB.getNbBiens() < 100) {
+                    	
                         Bien bien = new Bien();
                         bien.saisirBien();
                         listeB.ajouterBien(bien);
