@@ -279,4 +279,12 @@ public class ListeBiens {
             }
         }
     }
+    
+    void liberer(int idBien) {
+    	for (int i=0; i < nbBiens; i++) {
+            if (tabBiens[i].getId() == idBien) {
+                tabBiens[i].setIdLoc(-1);
+            }
+        }
+    }
 }

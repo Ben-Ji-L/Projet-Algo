@@ -38,18 +38,38 @@ public class MenuLocations {
                     listeDeBiens.afficherListeSimplifiee();
                     System.out.print("Entrez l'identifiant du bien à louer : ");
                     int idBien = sc.nextInt();
-
+                    
+                    if (listeLocataires.getNbLocataires() == 0) {
+                    	System.out.println("Aucun locataire enregistré !");
+                    	break;
+                    }
                     listeLocataires.afficherListeSimplifiee();
                     System.out.print("Entrez l'identifiant du locataire : ");
                     int idLoc = sc.nextInt();
 
                     listeLocataires.louer(idBien, idLoc);
                     listeDeBiens.louer(idBien, idLoc);
-
-
                     break;
 
                 case 2:
+                	if (listeDeBiens.getNbBiens() == 0) {
+                		System.out.println("Aucun bien enregistré !");
+                        break;
+                	}
+                	listeDeBiens.afficherListeSimplifiee();
+                    System.out.print("Entrez l'identifiant du bien à libérer : ");
+                    int idBienALiberer = sc.nextInt();
+                    
+                    if (listeLocataires.getNbLocataires() == 0) {
+                    	System.out.println("Aucun locataire enregistré !");
+                    	break;
+                    }
+                    listeLocataires.afficherListeSimplifiee();
+                    System.out.print("Entrez l'identifiant du locataire du bien à libérer : ");
+                    int idLocDuBienALiberer = sc.nextInt();
+                    
+                    listeLocataires.liberer(idBienALiberer, idLocDuBienALiberer);
+                    listeDeBiens.liberer(idBienALiberer);
                     break;
 
                 case 3:

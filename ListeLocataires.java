@@ -298,6 +298,24 @@ public class ListeLocataires {
         }
         dis.close();
     }
+    
+    void louer(int idBien, int idLocataire) {
+
+        for (int i=0; i < nbLocataires; i++) {
+            if (tableauDeLocataires[i].getIdentifiant() == idLocataire) {
+                tableauDeLocataires[i].ajouterUnBien(idBien);
+            }
+        }
+    }
+    
+    void liberer(int idBien, int idLocataire) {
+    	
+    	for (int i=0; i < nbLocataires; i++) {
+            if (tableauDeLocataires[i].getIdentifiant() == idLocataire) {
+                tableauDeLocataires[i].supprimerUnBien(idBien);
+            }
+        }
+    }
 
     /**
      * Permet de récupérer le nombre total courant d'objets Locataire
@@ -307,12 +325,5 @@ public class ListeLocataires {
         return nbLocataires;
     }
 
-    void louer(int idBien, int idLocataire) {
-
-        for (int i=0; i < nbLocataires; i++) {
-            if (tableauDeLocataires[i].getIdentifiant() == idLocataire) {
-                tableauDeLocataires[i].ajouterUnBien(idBien);
-            }
-        }
-    }
+    
 }
