@@ -112,7 +112,6 @@ public class MenuLocataires {
                     System.out.print ("Entrez le numéro identifiant du locataire dont vous souhaitez voir les locations : ");
                     identPourAffichage = sc.nextInt();
                     listeLocataires.afficherListeDesBiensPourUnLocataire(identPourAffichage);
-                    listeLocataires.sauvegarderListe();
                     break;
 
                 /*

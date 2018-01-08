@@ -33,7 +33,7 @@ public class MenuLocations {
                 case 1:
                     ListeBiens listeB = new ListeBiens();
                     if (listeB.getNbBiens() == 0) {
-                        System.out.println("Aucun Biens enregistré !");
+                        System.out.println("Aucun bien enregistré !");
                         break;
                     }
                     listeB.afficherListeSimplifiee();
@@ -54,7 +54,8 @@ public class MenuLocations {
                     break;
 
                 case 3:
-                    listeDeBiens.afficherLaListeDesBiensLoués();
+                    System.out.print ("La liste des biens actuellement loués est la suivante : ");
+                    listeDeBiens.afficherLaListeDesBiensLoues();
                     break;
 
                 case 4:
