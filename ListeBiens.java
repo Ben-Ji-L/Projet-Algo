@@ -262,7 +262,7 @@ public class ListeBiens {
         return -1;
     }
 
-    void afficherLaListeDesBiensLoués () {
+    void afficherLaListeDesBiensLoues() {
 
         for (int i=0; i<nbBiens; i++) {
             if (tabBiens[i].getIdLoc() != -1) {
