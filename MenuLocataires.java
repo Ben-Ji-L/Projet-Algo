@@ -19,8 +19,6 @@ public class MenuLocataires {
         int identPourType;
         ListeLocataires listeLocataires = new ListeLocataires();
         ListeTypesDeBiens listeTypesDeBiens = new ListeTypesDeBiens();
-        ListeBiens listeBiens = new ListeBiens();
-
 
         do {
             System.out.print("\n__________MENU DES LOCATAIRES__________\n\n" +

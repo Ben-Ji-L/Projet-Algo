@@ -11,8 +11,6 @@ public class MenuBiens {
         int id;
         ListeBiens listeB = new ListeBiens();
 
-        ListeLocataires ListeLoc = new ListeLocataires();
-
         do {
             System.out.print("\n__________MENU DES BIENS__________\n\n" +
                     "[1] Ajouter un bien\n" +
@@ -27,7 +25,6 @@ public class MenuBiens {
             switch (numChoisi) {
                 case 1:
                     if (listeB.getNbBiens() < 100) {
-                    	
                         Bien bien = new Bien();
                         bien.saisirBien();
                         listeB.ajouterBien(bien);
@@ -81,7 +78,6 @@ public class MenuBiens {
         String newRue;
         int newCp;
         String newVille;
-        int newIdLoc;
 
         System.out.print("Entrez le numéro identifiant du bien à modifier : ");
         oldId = sc.nextInt();
