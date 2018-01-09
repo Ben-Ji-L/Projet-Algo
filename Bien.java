@@ -13,7 +13,7 @@ import java.util.Scanner;
     int cp le code postal
     String ville le nom de la ville
 */
-class Bien {
+class Bien implements Comparable<Bien>{
 
     private int id;
     private String type;
@@ -47,11 +47,12 @@ class Bien {
 
         ListeTypesDeBiens listeB = new ListeTypesDeBiens();
         
+        listeB.afficherListeDesTypesDeBien();
+    	System.out.print ("Entrez l'identifiant du type de bien : ");
+    	idType = sc.nextInt();
+    	
         if (idType != -1) {
         	
-        	listeB.afficherListeDesTypesDeBien();
-        	System.out.print ("Entrez l'identifiant du type de bien : ");
-        	idType = sc.nextInt();
         	System.out.print ("Entrez le numero de rue du bien : ");
             numRue = sc.nextInt();
             sc.nextLine();
@@ -90,7 +91,7 @@ class Bien {
 
     String affichageSimplifieBien () {
 
-        return "\n" + id + " : " + type + numRue + " " + rue + " " + cp + " " + ville + " " + idLoc;
+        return "\n" + id + " : " + type + " " + numRue + " " + rue + " " + cp + " " + ville + " ";
     }
 
     void sauvegarderBien(DataOutputStream dos) throws IOException {
@@ -111,6 +112,11 @@ class Bien {
         cp = dis.readInt();
         ville = dis.readUTF();
         idLoc = dis.readInt();
+    }
+    
+    @Override
+    public int compareTo(Bien autreBien) {
+    	return type.compareTo(autreBien.type) + rue.compareTo(autreBien.rue);
     }
 
     public void setType(String type) {

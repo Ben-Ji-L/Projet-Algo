@@ -3,6 +3,8 @@
  */
 
 import java.io.*;
+import java.util.Arrays;
+
 
 public class ListeLocataires {
 
@@ -316,7 +318,28 @@ public class ListeLocataires {
             }
         }
     }
+    
+    public Locataire[] trierListe() {
+    	Locataire [] aTrier = new Locataire [nbLocataires];
+    	
+    	for (int i = 0; i < nbLocataires; i++) {
+    		aTrier[i] = tableauDeLocataires[i];
+    	}
+    	Arrays.sort(aTrier);
+    	return aTrier;
+    }
+    
+    public void afficherListeLocAlpha(Locataire [] tabTrier) {
+    	
+    	String resultat = "";
 
+        for (int i=0; i<nbLocataires; i++) {
+
+            resultat += tabTrier[i].affichageSimplifieLocataire() + "\n";
+        }
+        System.out.println(resultat);
+    }
+    
     /**
      * Permet de récupérer le nombre total courant d'objets Locataire
      * @return le nombre total d'objets Locataire

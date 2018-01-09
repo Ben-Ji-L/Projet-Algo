@@ -16,8 +16,9 @@ public class MenuBiens {
                     "[1] Ajouter un bien\n" +
                     "[2] Modifier un bien\n" +
                     "[3] Supprimer un bien\n" +
-                    "[4] Afficher la liste des biens\n" +
-                    "[5] Sortir du menu\n\n");
+                    "[4] Afficher la liste des biens par identifiant\n" +
+                    "[5] Afficher la liste des biens par ordre alphabétique\n" +
+                    "[6] Sortir du menu\n\n");
 
             System.out.print("Sélectionner l'action souhaitée : ");
             numChoisi = sc.nextInt();
@@ -62,10 +63,21 @@ public class MenuBiens {
                         break;
                     } else {
                         listeB.afficherListeDesBiens();
-                        break;
                     }
+                    break;
+                
+                case 5:
+                	listeB.afficherListeBiensAlpha(listeB.trierListe());
+                	break;
+                	
+                case 6:
+                	break;
+                	
+                default:
+                	System.out.println("Commande incorrecte !");
+                	
             }
-        } while(numChoisi != 5);
+        } while(numChoisi != 6);
 
     }
 

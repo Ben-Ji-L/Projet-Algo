@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 class TypeDeBien {
     private int identifiant;
-    private String nom;
+    public String nom;
 
     /**
      * Construit un type de bien

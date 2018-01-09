@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Arrays;
 
 /**
  * Cette classe représente la liste des biens immobiliers.
@@ -315,5 +316,26 @@ public class ListeBiens {
                 tabBiens[i].setIdLoc(-1);
             }
         }
+    }
+    
+    public Bien[] trierListe() {
+    	Bien [] aTrier = new Bien [nbBiens];
+    	
+    	for (int i = 0; i < nbBiens; i++) {
+    		aTrier[i] = tabBiens[i];
+    	}
+    	Arrays.sort(aTrier);
+    	return aTrier;
+    }
+    
+    public void afficherListeBiensAlpha(Bien [] tabTrier) {
+    	
+    	String resultat = "";
+
+        for (int i = 0; i < nbBiens; i++) {
+
+            resultat += tabTrier[i].affichageSimplifieBien() + "\n";
+        }
+        System.out.println(resultat);
     }
 }

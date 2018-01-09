@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * Classe repésentant un locataire
  */
-class Locataire {
+class Locataire implements Comparable<Locataire>{
 
 
     private int identifiant;
@@ -164,6 +164,11 @@ class Locataire {
         }
     }
 
+    @Override
+    public int compareTo(Locataire autre) {
+    	return nom.compareTo(autre.nom);
+    }
+    
     /**
      * Donne un identifiant unique généré auparavant à un locataire
      * @param ident Identifiant généré

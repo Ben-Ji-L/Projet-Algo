@@ -26,9 +26,10 @@ public class MenuLocataires {
                     "[2] Modifier un locataire\n" +
                     "[3] Supprimer un locataire\n" +
                     "[4] Afficher la liste des locataires\n" +
-                    "[5] Afficher la liste des locataires par type de bien\n" +
-                    "[6] Rechercher la liste des locations d'un locataire\n" +
-                    "[7] Sortir du menu\n\n");
+                    "[5] Afficher la liste des locataires par ordre alphabétique\n" +
+                    "[6] Afficher la liste des locataires par type de bien\n" +
+                    "[7] Rechercher la liste des locations d'un locataire\n" +
+                    "[8] Sortir du menu\n\n");
 
             System.out.print("Entrez le numéro de l'action souhaitée : ");
             choixMenuLoc = sc.nextInt();
@@ -85,11 +86,15 @@ public class MenuLocataires {
                 case 4:
                     listeLocataires.afficherListeDesLocataires();
                     break;
+                    
+                case 5:
+                	listeLocataires.afficherListeLocAlpha(listeLocataires.trierListe());
+                	break;
 
                 /*
                 Affiche la listeLocataires des locataires par type de biens
                  */
-                case 5:
+                case 6:
                     listeTypesDeBiens.afficherListeDesTypesDeBien();
                     System.out.print ("Entrez l'identifiant du type de bien dont vous souhaitez connaître les locataires : ");
                     identPourType = sc.nextInt();
@@ -101,7 +106,7 @@ public class MenuLocataires {
                 /*
                 Recherche et affiche la listeLocataires des locations d'un locataire donné
                  */
-                case 6:
+                case 7:
                     if (listeLocataires.getNbLocataires()==0) {
                         System.out.println ("Il n'y a aucun locataire enregistré.\n");
                         return;
@@ -115,7 +120,7 @@ public class MenuLocataires {
                 /*
                 permet du sortir du menu des locataires
                  */
-                case 7:
+                case 8:
                     break;
 
                 /*
@@ -124,7 +129,7 @@ public class MenuLocataires {
                 default:
                     System.out.print("Commande incorrecte.");
             }
-        } while (choixMenuLoc!=7);
+        } while (choixMenuLoc!=8);
     }
 
     /**
