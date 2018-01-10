@@ -1,17 +1,27 @@
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Classe gérant le menu des biens
+ */
 public class MenuBiens {
 
     Scanner sc = new Scanner(System.in);
 
+    /**
+     * Affiche le menu des biens
+     * @throws IOException
+     */
     void afficherMenu () throws IOException {
 
+    	// Le numéro de l'action à effectuer
         int numChoisi;
         int id;
+        // La liste des biens
         ListeBiens listeB = new ListeBiens();
 
         do {
+        	// Le menu principal des biens
             System.out.print("\n__________MENU DES BIENS__________\n\n" +
                     "[1] Ajouter un bien\n" +
                     "[2] Modifier un bien\n" +
@@ -81,6 +91,11 @@ public class MenuBiens {
 
     }
 
+    /**
+     * Permet de modifier un bien
+     * @param listeB la liste des biens
+     * @throws IOException
+     */
     void modifierBien (ListeBiens listeB) throws IOException {
 
         int oldId;
@@ -95,7 +110,7 @@ public class MenuBiens {
         oldId = sc.nextInt();
 
         do {
-
+        	// Le munu permettant la modification d'un bien
             System.out.print ("\n\n______MODIFIER UN BIEN_____\n" +
                 "[1] Modifier le type\n" +
                 "[2] Modifier le numéro de rue\n" +
