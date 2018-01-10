@@ -1,6 +1,9 @@
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Classe qui gère toutes les actions relatives aux types de biens
+ */
 public class MenuTypesDeBiens {
     Scanner sc = new Scanner (System.in);
     int choixMenuTypes;
@@ -8,10 +11,12 @@ public class MenuTypesDeBiens {
     int identAModifier;
     String newNom;
 
+    //Affiche le menu de gestion des types de biens
     void afficherMenu () throws IOException {
 
         ListeTypesDeBiens liste = new ListeTypesDeBiens();
 
+        //On répète l'affichage du menu après chaque action, tant que l'utilisateur ne demande pas à en sortir
         do {
             System.out.print("\n________MENU DES TYPES DE BIENS________\n\n" +
                     "[1] Ajouter un nouveau type de bien\n" +
@@ -25,6 +30,7 @@ public class MenuTypesDeBiens {
 
             switch (choixMenuTypes) {
 
+                //Ajoute un nouveau type de bien à la liste des types de biens
                 case 1:
                     if (liste.getNbTypes() < 20) {
                         TypeDeBien type = new TypeDeBien();
@@ -36,6 +42,7 @@ public class MenuTypesDeBiens {
                     }
                     break;
 
+                //Modifie un type de bien
                 case 2:
                     liste.afficherListeDesTypesDeBien();
                     System.out.print("Entrez l'identifiant du type à modifier : ");
@@ -46,6 +53,7 @@ public class MenuTypesDeBiens {
                     liste.sauvegarderListe();
                     break;
 
+                //Supprime un type de bien
                 case 3:
                     if (liste.getNbTypes() == 0) {
                         System.out.print("Il n'y a pas encore de type de bien enregistré.");
@@ -59,13 +67,16 @@ public class MenuTypesDeBiens {
                     liste.sauvegarderListe();
                     break;
 
+                //Affiche la liste des types de biens
                 case 4:
                     liste.afficherListeDesTypesDeBien();
                     break;
 
+                //Permet de sortir du menu de gestion des types de biens
                 case 5:
                     break;
 
+                //Instruction par défaut, au cas où l'utilisateur taperait un chiffre non compris dans les options
                 default:
                     System.out.print("Commande incorrecte.");
             }

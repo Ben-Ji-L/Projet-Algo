@@ -120,7 +120,7 @@ public class MenuLocataires {
                     break;
 
                 /*
-                permet du sortir du menu des locataires
+                Permet du sortir du menu des locataires
                  */
                 case 8:
                     break;
