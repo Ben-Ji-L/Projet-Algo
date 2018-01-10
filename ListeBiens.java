@@ -11,13 +11,9 @@ public class ListeBiens {
     private int nextId;
 
     /**
-     * Permet de récuppérer le nombre de biens.
-     * @return le nombre de biens
+     * Construit un bien
+     * @throws IOException
      */
-    public int getNbBiens() {
-        return nbBiens;
-    }
-
     ListeBiens () throws  IOException {
 
         // Le tableau qui contiendra les biens
@@ -264,21 +260,6 @@ public class ListeBiens {
         }
         return tabResultat;
     }
-    /**
-     * Permet de récuperer l'identifiant du type du bien
-     * @param identBien l'identifiant du bien
-     * @return l'identifiant du type ou -1
-     */
-    public int getIDTypeDeBien (int identBien) {
-
-        for (int i=0; i<nbBiens; i++) {
-            if (tabBiens[i].getId() == identBien) {
-                return tabBiens[i].getIdType();
-            }
-        }
-        return -1;
-    }
-
     
     /**
      * Affiche la liste des biens loués
@@ -318,6 +299,10 @@ public class ListeBiens {
         }
     }
     
+    /**
+     * Permet de trier la liste des biens
+     * @return le tableau trié
+     */
     public Bien[] trierListe() {
     	Bien [] aTrier = new Bien [nbBiens];
     	
@@ -328,6 +313,10 @@ public class ListeBiens {
     	return aTrier;
     }
     
+    /**
+     * Affiche la liste des biens par ordre alphabétique.
+     * @param tabTrie le tableau trié par ordre alphabétique
+     */
     public void afficherListeBiensAlpha(Bien [] tabTrie) {
     	
     	String resultat = "";
@@ -337,5 +326,28 @@ public class ListeBiens {
             resultat += tabTrie[i].affichageSimplifieBien() + "\n";
         }
         System.out.println(resultat);
+    }
+    
+    /**
+     * Permet de récuppérer le nombre de biens.
+     * @return le nombre de biens
+     */
+    public int getNbBiens() {
+        return nbBiens;
+    }
+    
+    /**
+     * Permet de récuperer l'identifiant du type du bien
+     * @param identBien l'identifiant du bien
+     * @return l'identifiant du type ou -1
+     */
+    public int getIDTypeDeBien (int identBien) {
+
+        for (int i=0; i<nbBiens; i++) {
+            if (tabBiens[i].getId() == identBien) {
+                return tabBiens[i].getIdType();
+            }
+        }
+        return -1;
     }
 }
