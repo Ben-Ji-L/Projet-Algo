@@ -49,8 +49,11 @@ public class MenuLocations {
 
                     listeLocataires.louer(idBien, idLoc);
                     listeDeBiens.louer(idBien, idLoc);
+
                     listeLocataires.sauvegarderListe();
                     listeDeBiens.sauvegarderListe();
+
+                    System.out.println("Le bien est maintenant loué !");
                     break;
 
                 case 2:
@@ -74,6 +77,8 @@ public class MenuLocations {
                     listeDeBiens.liberer(idBienALiberer);
                     listeLocataires.sauvegarderListe();
                     listeDeBiens.sauvegarderListe();
+
+                    System.out.println("Le bien est maintenant libéré !");
                     break;
 
                 case 3:
