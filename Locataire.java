@@ -35,8 +35,8 @@ class Locataire implements Comparable<Locataire>{
      */
     void saisirLocataire () {
         Scanner sc = new Scanner (System.in);
-        System.out.print ("\nEntrez le nom du locataire : ");
 
+        System.out.print ("\nEntrez le nom du locataire : ");
         nom = sc.nextLine();
 
         System.out.print ("Entrez l'adresse du locataire : ");
@@ -166,6 +166,11 @@ class Locataire implements Comparable<Locataire>{
         }
     }
 
+    /**
+     * Permet de comparer un objet Locataire à un autre objet de même type
+     * @param autre L'autre objet Locataire avec lequelle on fait la comparaison
+     * @return Un entier qui donne le résultat de la comparaison
+     */
     @Override
     public int compareTo(Locataire autre) {
     	return nom.compareTo(autre.nom);

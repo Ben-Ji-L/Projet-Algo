@@ -103,6 +103,11 @@ public class ListeTypesDeBiens {
         }
     }
 
+    /**
+     * Permet de retrouver le nom d'un type de bien, à partir de son identifiant
+     * @param ident Identifiant du type dont on souhaite obtenir le nom
+     * @return Le nom du type
+     */
     String trouverTypeparIdent (int ident) {
         String nomType = "";
 

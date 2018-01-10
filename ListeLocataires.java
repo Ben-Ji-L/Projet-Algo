@@ -214,7 +214,6 @@ public class ListeLocataires {
      * @throws IOException
      */
     void afficherLocatairesLouantAuMoinsUnBien (boolean afficherBiens) throws IOException {
-        ListeBiens listeBiens = new ListeBiens();
 
         //On parcourt la liste des locataires
         for (int i=0; i<nbLocataires; i++) {
@@ -300,7 +299,13 @@ public class ListeLocataires {
         }
         dis.close();
     }
-    
+
+    /**
+     * Entre l'identifiant d'un bien dans le tableau qui recense la liste des biens loués par un Locataire
+     * de manière à ce qu'il sopit considéré comme loué
+     * @param idBien L'identifiant du bien qu'on veut attribuer au Locataire
+     * @param idLocataire L'identifiant du Locataire à qui on veut attribuer le bien
+     */
     void louer(int idBien, int idLocataire) {
 
         for (int i=0; i < nbLocataires; i++) {
@@ -308,8 +313,14 @@ public class ListeLocataires {
                 tableauDeLocataires[i].ajouterUnBien(idBien);
             }
         }
+
     }
-    
+
+    /**
+     * Permet de retirer un bien de la liste des biens loués d'un Locataire
+     * @param idBien L'identifiant du bien que l'on souhaite enlever
+     * @param idLocataire L'identifiant du Locataire à qui on veut enlever le bien
+     */
     void liberer(int idBien, int idLocataire) {
     	
     	for (int i=0; i < nbLocataires; i++) {
@@ -318,7 +329,12 @@ public class ListeLocataires {
             }
         }
     }
-    
+
+    /**
+     * Trie la liste des Locataires en les mettant au préalable dans un tableau de la taille de leur nombre total suivant
+     * un ou plusieurs paramètre(s) défini(s) dans la méthode compareTo
+     * @return Le tableau trié
+     */
     public Locataire[] trierListe() {
     	Locataire [] aTrier = new Locataire [nbLocataires];
     	
@@ -328,7 +344,11 @@ public class ListeLocataires {
     	Arrays.sort(aTrier);
     	return aTrier;
     }
-    
+
+    /**
+     * Affiche une liste simplifiée (Identifiant, nom) des locataires par ordre alphabétique
+     * @param tabTrier La liste des Locataires à afficher
+     */
     public void afficherListeLocAlpha(Locataire [] tabTrier) {
     	
     	String resultat = "";

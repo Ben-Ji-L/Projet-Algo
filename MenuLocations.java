@@ -49,6 +49,8 @@ public class MenuLocations {
 
                     listeLocataires.louer(idBien, idLoc);
                     listeDeBiens.louer(idBien, idLoc);
+                    listeLocataires.sauvegarderListe();
+                    listeDeBiens.sauvegarderListe();
                     break;
 
                 case 2:
@@ -70,6 +72,8 @@ public class MenuLocations {
                     
                     listeLocataires.liberer(idBienALiberer, idLocDuBienALiberer);
                     listeDeBiens.liberer(idBienALiberer);
+                    listeLocataires.sauvegarderListe();
+                    listeDeBiens.sauvegarderListe();
                     break;
 
                 case 3:
