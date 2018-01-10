@@ -328,13 +328,13 @@ public class ListeBiens {
     	return aTrier;
     }
     
-    public void afficherListeBiensAlpha(Bien [] tabTrier) {
+    public void afficherListeBiensAlpha(Bien [] tabTrie) {
     	
     	String resultat = "";
 
         for (int i = 0; i < nbBiens; i++) {
 
-            resultat += tabTrier[i].affichageSimplifieBien() + "\n";
+            resultat += tabTrie[i].affichageSimplifieBien() + "\n";
         }
         System.out.println(resultat);
     }

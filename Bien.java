@@ -66,6 +66,8 @@ class Bien implements Comparable<Bien>{
 
             System.out.print ("Entrez la ville du bien : ");
             ville = sc.nextLine();
+
+            type = listeB.trouverTypeparIdent(idType);
             
         } else {
         	System.out.println("Il n'y a aucun type de biens enregistré.");

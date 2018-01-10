@@ -103,6 +103,17 @@ public class ListeTypesDeBiens {
         }
     }
 
+    String trouverTypeparIdent (int ident) {
+        String nomType = "";
+
+        for (int i=0; i<nbTypes; i++) {
+            if (tableauDeTypesDeBiens [i].getIdentifiant()==ident) {
+                nomType = tableauDeTypesDeBiens [i].getNom ();
+            }
+        }
+        return nomType;
+    }
+
     /**
      * Sauvegarde la liste des types
      * @throws IOException
