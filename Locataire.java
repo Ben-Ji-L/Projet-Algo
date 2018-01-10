@@ -35,8 +35,8 @@ class Locataire implements Comparable<Locataire>{
      */
     void saisirLocataire () {
         Scanner sc = new Scanner (System.in);
+        System.out.print ("\nEntrez le nom du locataire : ");
 
-        System.out.print ("Entrez le nom du locataire : ");
         nom = sc.nextLine();
 
         System.out.print ("Entrez l'adresse du locataire : ");
@@ -44,6 +44,8 @@ class Locataire implements Comparable<Locataire>{
 
         System.out.print ("Entrez le numéro de téléphone du locataire : ");
         numTel = sc.nextLine();
+
+        System.out.print ("\nLocataire correctement enregistré.\n\n");
 
     }
 

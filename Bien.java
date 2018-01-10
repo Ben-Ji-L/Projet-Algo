@@ -118,7 +118,10 @@ class Bien implements Comparable<Bien>{
     
     @Override
     public int compareTo(Bien autreBien) {
-    	return type.compareTo(autreBien.type) + rue.compareTo(autreBien.rue);
+    	String nomBien = type + "-" + numRue + "-" + rue + "-" + cp + "-" + ville;
+    	String nomAutreBien = autreBien.type + "-" + autreBien.numRue + "-" + autreBien.rue + "-" + autreBien.cp + "-" + autreBien.ville;
+
+    	return nomBien.compareTo(nomAutreBien);
     }
 
     public void setType(String type) {

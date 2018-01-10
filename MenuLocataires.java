@@ -47,7 +47,7 @@ public class MenuLocataires {
                         listeLocataires.sauvegarderListe();
                     }
                     else {
-                        System.out.println ("Vous ne pouvez plus ajouter de locataire, le nombre maximal a déjà été atteint.");
+                        System.out.println ("\nVous ne pouvez plus ajouter de locataire, le nombre maximal a déjà été atteint.");
                     }
                     break;
 
@@ -84,11 +84,13 @@ public class MenuLocataires {
                 Affiche une listeLocataires complète de tous les locataires les uns après les autres
                  */
                 case 4:
+                    System.out.print ("\n\n\n");
                     listeLocataires.afficherListeDesLocataires();
                     break;
                     
                 case 5:
-                	listeLocataires.afficherListeLocAlpha(listeLocataires.trierListe());
+                    System.out.print ("\n\n\n");
+                    listeLocataires.afficherListeLocAlpha(listeLocataires.trierListe());
                 	break;
 
                 /*
