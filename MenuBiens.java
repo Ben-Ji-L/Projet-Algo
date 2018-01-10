@@ -33,6 +33,9 @@ public class MenuBiens {
             System.out.print("Sélectionner l'action souhaitée : ");
             numChoisi = sc.nextInt();
 
+            /**
+             * En fonction du choix de l'utilisateur, le switch propose l'option qui lui est relative
+             */
             switch (numChoisi) {
                 case 1:
                     if (listeB.getNbBiens() < 100) {
@@ -110,7 +113,7 @@ public class MenuBiens {
         oldId = sc.nextInt();
 
         do {
-        	// Le munu permettant la modification d'un bien
+        	// Le sous-menu permettant la modification d'un bien
             System.out.print ("\n\n______MODIFIER UN BIEN_____\n" +
                 "[1] Modifier le type\n" +
                 "[2] Modifier le numéro de rue\n" +
