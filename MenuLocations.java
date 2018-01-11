@@ -54,13 +54,22 @@ public class MenuLocations {
                     System.out.print("Entrez l'identifiant du locataire : ");
                     int idLoc = sc.nextInt();
 
-                    listeLocataires.louer(idBien, idLoc);
-                    listeDeBiens.louer(idBien, idLoc);
+                    if (listeLocataires.getNbBiensParIdentLoc(idLoc) < 5) {
+                        if (listeDeBiens.getIdLocParIdentBien(idBien) == -1) {
+                            listeLocataires.louer(idBien, idLoc);
+                            listeDeBiens.louer(idBien, idLoc);
+                            System.out.println("Le bien est maintenant loué !");
+                        }
+                        else {
+                            System.out.print("Ce bien est déjà loué.\n");
+                        }
+                    }
+                    else {
+                        System.out.print("Ce locataire loue déjà 5 biens, impossible d'en ajouter.\n");
+                    }
 
                     listeLocataires.sauvegarderListe();
                     listeDeBiens.sauvegarderListe();
-
-                    System.out.println("Le bien est maintenant loué !");
                     break;
 
                 // Libérer un bien
@@ -77,16 +86,16 @@ public class MenuLocations {
                     	System.out.println("Aucun locataire enregistré !");
                     	break;
                     }
-                    listeLocataires.afficherListeSimplifiee();
-                    System.out.print("Entrez l'identifiant du locataire du bien à libérer : ");
-                    int idLocDuBienALiberer = sc.nextInt();
-                    
-                    listeLocataires.liberer(idBienALiberer, idLocDuBienALiberer);
-                    listeDeBiens.liberer(idBienALiberer);
+
+                    int idLocDuBienALiberer = listeDeBiens.getIdLocParIdentBien(idBienALiberer);
+                    if (idLocDuBienALiberer != -1) {
+                        listeLocataires.liberer(idBienALiberer, idLocDuBienALiberer);
+                        listeDeBiens.liberer(idBienALiberer);
+                        System.out.println("Le bien est maintenant libéré !");
+                    }
+
                     listeLocataires.sauvegarderListe();
                     listeDeBiens.sauvegarderListe();
-
-                    System.out.println("Le bien est maintenant libéré !");
                     break;
 
                 // Affiche la liste des biens loués

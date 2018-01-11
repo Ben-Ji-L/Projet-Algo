@@ -245,6 +245,17 @@ public class ListeLocataires {
         }
     }
 
+    int compterTousLesLocatairesPourUnTypeDeBien (int identType) throws IOException {
+        int compteur = 0;
+
+        for (int i=0; i<nbLocataires; i++) {
+            if (tableauDeLocataires [i].loueCeTypeDeBien(identType)) {
+                compteur ++;
+            }
+        }
+        return compteur;
+    }
+
     /**
      * Génère un identifiant unique
      * @return un identifiant unique
@@ -366,6 +377,15 @@ public class ListeLocataires {
      */
     public int getNbLocataires() {
         return nbLocataires;
+    }
+
+    public int getNbBiensParIdentLoc (int identLoc) {
+        for (int i=0; i< nbLocataires; i++) {
+            if (tableauDeLocataires [i].getIdentifiant() == identLoc) {
+                return tableauDeLocataires [i].getNbBiensLoues();
+            }
+        }
+        return -1;
     }
 
     

@@ -25,7 +25,7 @@ public class MenuLocataires {
                     "[1] Ajouter un locataire\n" +
                     "[2] Modifier un locataire\n" +
                     "[3] Supprimer un locataire\n" +
-                    "[4] Afficher la liste des locataires\n" +
+                    "[4] Afficher la liste des locataires par ordre d'identifiant\n" +
                     "[5] Afficher la liste des locataires par ordre alphabétique\n" +
                     "[6] Afficher la liste des locataires par type de bien\n" +
                     "[7] Rechercher la liste des locations d'un locataire\n" +
@@ -84,12 +84,12 @@ public class MenuLocataires {
                 Affiche une listeLocataires complète de tous les locataires les uns après les autres
                  */
                 case 4:
-                    System.out.print ("\n\n\n");
+                    System.out.print ("\n\n");
                     listeLocataires.afficherListeDesLocataires();
                     break;
                     
                 case 5:
-                    System.out.print ("\n\n\n");
+                    System.out.print ("\n\n");
                     listeLocataires.afficherListeLocAlpha(listeLocataires.trierListe());
                 	break;
 
@@ -98,11 +98,16 @@ public class MenuLocataires {
                  */
                 case 6:
                     listeTypesDeBiens.afficherListeDesTypesDeBien();
-                    System.out.print ("Entrez l'identifiant du type de bien dont vous souhaitez connaître les locataires : ");
+                    System.out.print ("\nEntrez l'identifiant du type de bien dont vous souhaitez connaître les locataires : ");
                     identPourType = sc.nextInt();
 
-                    System.out.print("\n\nLes locataires louant un bien de ce type sont : \n");
-                    listeLocataires.afficherTousLesLocatairesPourUnTypeDeBien(identPourType);
+                    if (listeLocataires.compterTousLesLocatairesPourUnTypeDeBien(identPourType) == 0) {
+                        System.out.print("Il n'y a aucun locataire louant ce type de bien actuelement./n");
+                    }
+                    else {
+                        System.out.print("\nLes locataires louant un bien de ce type sont : \n");
+                        listeLocataires.afficherTousLesLocatairesPourUnTypeDeBien(identPourType);
+                    }
                     break;
 
                 /*
@@ -173,6 +178,7 @@ public class MenuLocataires {
                     newNom = sc.nextLine();
                     liste.modifierNom(identAModifier, newNom);
                     liste.sauvegarderListe();
+                    System.out.print ("Le nom a été correctement modifié.\n");
                     break;
 
                 /*
@@ -184,6 +190,7 @@ public class MenuLocataires {
                     newAdresse = sc.nextLine();
                     liste.modifierAdresse(identAModifier, newAdresse);
                     liste.sauvegarderListe();
+                    System.out.print("L'adresse a été correctement modifié. \n");
                     break;
 
                 /*
@@ -195,6 +202,7 @@ public class MenuLocataires {
                     newTelephone = sc.nextLine();
                     liste.modifierTelephone(identAModifier, newTelephone);
                     liste.sauvegarderListe();
+                    System.out.print("Le numéro de téléphone a été correctement modifié.\n");
                     break;
             }
         } while (choixMenuModifier !=4);

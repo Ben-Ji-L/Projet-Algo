@@ -284,7 +284,7 @@ public class ListeBiens {
             if (tabBiens[i].getId() == idBien) {
                 tabBiens[i].setIdLoc(idLocataire);
             }
-        }
+    	}
     }
     
     /**
@@ -346,6 +346,15 @@ public class ListeBiens {
         for (int i=0; i<nbBiens; i++) {
             if (tabBiens[i].getId() == identBien) {
                 return tabBiens[i].getIdType();
+            }
+        }
+        return -1;
+    }
+
+    public int getIdLocParIdentBien (int identBien) {
+        for (int i=0; i<nbBiens; i++) {
+            if (tabBiens [i].getId() == identBien) {
+                return tabBiens [i].getIdLoc();
             }
         }
         return -1;

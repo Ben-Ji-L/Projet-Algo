@@ -34,15 +34,20 @@ public class MenuTypesDeBiens {
                 case 1:
                     if (liste.getNbTypes() < 20) {
                         TypeDeBien type = new TypeDeBien();
+                        //On commence par demander à l'utilisateur de saisir les informations nécessaires à la
+                        //création d'un nouveau Type de bien
                         type.saisirTypeDeBien();
+                        //On l'ajoute à la liste des objets Type de bien
                         liste.ajouterTypeDeBien(type);
+                        //On sauvegarde la liste après chaque nouvel ajout
                         liste.sauvegarderListe();
                     } else {
                         System.out.print("Vous ne pouvez plus ajouter de type de bien, le nombre maximal a déjà été atteint.");
                     }
                     break;
 
-                //Modifie un type de bien
+                //Modifie un type de bien (on permet seulement la modification du nom d'un type,
+                // il n'a pas d'autre attribut en dehors de son identifiant)
                 case 2:
                     liste.afficherListeDesTypesDeBien();
                     System.out.print("Entrez l'identifiant du type à modifier : ");

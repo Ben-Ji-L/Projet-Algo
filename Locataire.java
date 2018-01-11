@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * Classe repésentant un locataire
+ * Classe représentant un locataire
  */
 class Locataire implements Comparable<Locataire>{
 

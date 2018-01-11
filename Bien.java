@@ -117,6 +117,7 @@ class Bien implements Comparable<Bien>{
         dos.writeInt(cp);
         dos.writeUTF(ville);
         dos.writeInt(idLoc);
+        dos.writeInt(idType);
     }
 
     /**
@@ -132,6 +133,7 @@ class Bien implements Comparable<Bien>{
         cp = dis.readInt();
         ville = dis.readUTF();
         idLoc = dis.readInt();
+        idType = dis.readInt();
     }
     
     /**
