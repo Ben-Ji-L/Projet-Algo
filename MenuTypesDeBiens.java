@@ -14,7 +14,8 @@ public class MenuTypesDeBiens {
     //Affiche le menu de gestion des types de biens
     void afficherMenu () throws IOException {
 
-        ListeTypesDeBiens liste = new ListeTypesDeBiens();
+        ListeTypesDeBiens listeTypes = new ListeTypesDeBiens();
+        ListeBiens listeBiens = new ListeBiens();
 
         //On répète l'affichage du menu après chaque action, tant que l'utilisateur ne demande pas à en sortir
         do {
@@ -32,15 +33,15 @@ public class MenuTypesDeBiens {
 
                 //Ajoute un nouveau type de bien à la liste des types de biens
                 case 1:
-                    if (liste.getNbTypes() < 20) {
+                    if (listeTypes.getNbTypes() < 20) {
                         TypeDeBien type = new TypeDeBien();
                         //On commence par demander à l'utilisateur de saisir les informations nécessaires à la
                         //création d'un nouveau Type de bien
                         type.saisirTypeDeBien();
                         //On l'ajoute à la liste des objets Type de bien
-                        liste.ajouterTypeDeBien(type);
+                        listeTypes.ajouterTypeDeBien(type);
                         //On sauvegarde la liste après chaque nouvel ajout
-                        liste.sauvegarderListe();
+                        listeTypes.sauvegarderListe();
                     } else {
                         System.out.print("Vous ne pouvez plus ajouter de type de bien, le nombre maximal a déjà été atteint.");
                     }
@@ -49,32 +50,39 @@ public class MenuTypesDeBiens {
                 //Modifie un type de bien (on permet seulement la modification du nom d'un type,
                 // il n'a pas d'autre attribut en dehors de son identifiant)
                 case 2:
-                    liste.afficherListeDesTypesDeBien();
+                    listeTypes.afficherListeDesTypesDeBien();
                     System.out.print("Entrez l'identifiant du type à modifier : ");
                     identAModifier = sc.nextInt();
                     System.out.print("Saisissez le nouveau nom souhaité pour le type : ");
                     newNom = sc.nextLine();
-                    liste.modifierNom(identAModifier, newNom);
-                    liste.sauvegarderListe();
+                    listeTypes.modifierNom(identAModifier, newNom);
+                    listeTypes.sauvegarderListe();
+                    System.out.print("Le nom de type a été correctement modifié.\n");
                     break;
 
                 //Supprime un type de bien
                 case 3:
-                    if (liste.getNbTypes() == 0) {
-                        System.out.print("Il n'y a pas encore de type de bien enregistré.");
+                    if (listeTypes.getNbTypes() == 0) {
+                        System.out.print("Il n'y a pas encore de type de biens enregistré.\n");
                         return;
                     }
 
-                    liste.afficherListeDesTypesDeBien();
+                    if (listeBiens.getNbBiens() != 0) {
+                        System.out.print ("Il reste des biens de ce type enregistrés. Action impossible.\n");
+                        return;
+                    }
+
+                    listeTypes.afficherListeDesTypesDeBien();
                     System.out.print("Saisissez l'identifiant du type de bien à supprimer : ");
                     identASupprimer = sc.nextInt();
-                    liste.supprimerTypeDeBien(identASupprimer);
-                    liste.sauvegarderListe();
+                    listeTypes.supprimerTypeDeBien(identASupprimer);
+                    listeTypes.sauvegarderListe();
+                    System.out.print("Le type de biens a été correctement supprimé.\n");
                     break;
 
                 //Affiche la liste des types de biens
                 case 4:
-                    liste.afficherListeDesTypesDeBien();
+                    listeTypes.afficherListeDesTypesDeBien();
                     break;
 
                 //Permet de sortir du menu de gestion des types de biens
@@ -83,7 +91,7 @@ public class MenuTypesDeBiens {
 
                 //Instruction par défaut, au cas où l'utilisateur taperait un chiffre non compris dans les options
                 default:
-                    System.out.print("Commande incorrecte.");
+                    System.out.print("Commande incorrecte.\n");
             }
         } while (choixMenuTypes != 5);
 

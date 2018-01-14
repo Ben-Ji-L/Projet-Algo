@@ -81,7 +81,8 @@ class Bien implements Comparable<Bien>{
     public String toString () {
 
     	String resultat = "";
-        resultat = "\nType : " + type + "\n"
+        resultat = "\nIdentifiant : " + id + "\n"
+                + "Type : " + type + "\n"
                 + "Numero de rue : " + numRue + "\n"
                 + "Rue : " + rue + "\n"
                 + "Code postal : " + cp + "\n"

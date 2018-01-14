@@ -102,7 +102,7 @@ public class MenuLocataires {
                     identPourType = sc.nextInt();
 
                     if (listeLocataires.compterTousLesLocatairesPourUnTypeDeBien(identPourType) == 0) {
-                        System.out.print("Il n'y a aucun locataire louant ce type de bien actuelement./n");
+                        System.out.print("Il n'y a aucun locataire louant ce type de bien actuelement.\n");
                     }
                     else {
                         System.out.print("\nLes locataires louant un bien de ce type sont : \n");

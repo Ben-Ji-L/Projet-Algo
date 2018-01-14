@@ -191,7 +191,7 @@ public class ListeLocataires {
         for (int i=0; i<nbLocataires; i++) {
             if (tableauDeLocataires[i].getIdentifiant()==ident) {
                 if (tableauDeLocataires[i].getNbBiensLoues()==0) {
-                    System.out.print ("Ce locataire n'a pas de biens en cours de location.");
+                    System.out.print ("Ce locataire n'a pas de biens en cours de location.\n");
                 }
                 else {
                     //On stocke la liste des identifiants des biens du locataire identifié, dans une liste temporaire

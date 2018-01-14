@@ -14,7 +14,7 @@ class MenuGeneral {
      */
     void afficherMenu () throws IOException {
 
-        System.out.print ("...BIENVENUE SUR LE PROGRAMME DE GESTION DE LOCATIONS DE L'ASSOCIATION LOSC...\n");
+        System.out.print ("\n\n...BIENVENUE SUR LE PROGRAMME DE GESTION DE LOCATIONS DE L'ASSOCIATION LOSC...\n");
 
          do {
              System.out.print("\n__________MENU GÉNÉRAL__________\n\n" +
