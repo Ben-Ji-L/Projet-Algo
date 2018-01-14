@@ -3,3 +3,5 @@ Projet-Algo.iml
 out/production
 Biens.bin
 TypesDeBiens.bin
+*.class
+*.bin

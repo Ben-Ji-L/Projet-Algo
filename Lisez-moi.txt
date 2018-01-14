@@ -1,0 +1,7 @@
+Vous avez choisi d'utiliser notre programme de location.
+
+Pour compiler le programme, ouvrez un terminal, placez-vous dans le dossier Losc et entrez la commande "compiler.sh".
+Pour lancer le programme, entrez la commande "run.sh".
+Vous pouvez désormais gérer vos locations.
+
+Nous vous souhaitons un bon usage de notre application.
