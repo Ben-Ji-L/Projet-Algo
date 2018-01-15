@@ -49,7 +49,7 @@ class Bien implements Comparable<Bien>{
         ListeTypesDeBiens listeB = new ListeTypesDeBiens();
         
         if (listeB.getNbTypes()==0) {
-            System.out.print("Il n'y a pas encore de type de bien enregistré, veuillez d'abord enregistrer au moins un typre de bien.\n");
+            System.out.print("Il n'y a pas encore de type de bien enregistré, veuillez d'abord enregistrer au moins un type de bien.\n");
             return false;
         }
 
