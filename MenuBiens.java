@@ -40,11 +40,13 @@ public class MenuBiens {
                 case 1:
                     if (listeB.getNbBiens() < 100) {
                         Bien bien = new Bien();
-                        bien.saisirBien();
-                        listeB.ajouterBien(bien);
-                        listeB.sauvegarderListe();
+                        if (bien.saisirBien()) {
+                            listeB.ajouterBien(bien);
+                            listeB.sauvegarderListe();
+                        }
+
                     } else {
-                        System.out.println("Il y a trop de biens enregistrés !");
+                        System.out.println("Il y a trop de biens enregistrés !\n");
                     }
                     break;
 
@@ -64,7 +66,7 @@ public class MenuBiens {
                         break;
                     }
                     listeB.afficherListeSimplifiee();
-                    System.out.print("Entrez le numéro identifiant du Bien à supprimer : ");
+                    System.out.print("Entrez le numéro identifiant du bien à supprimer : ");
                     id = sc.nextInt();
                     listeB.supprimerBien(id);
                     listeB.sauvegarderListe();
@@ -87,7 +89,7 @@ public class MenuBiens {
                 	break;
                 	
                 default:
-                	System.out.println("Commande incorrecte !");
+                	System.out.println("Commande incorrecte !\n");
                 	
             }
         } while(numChoisi != 6);

@@ -43,7 +43,7 @@ public class MenuTypesDeBiens {
                         //On sauvegarde la liste après chaque nouvel ajout
                         listeTypes.sauvegarderListe();
                     } else {
-                        System.out.print("Vous ne pouvez plus ajouter de type de bien, le nombre maximal a déjà été atteint.");
+                        System.out.print("Vous ne pouvez plus ajouter de type de bien, le nombre maximal a déjà été atteint.\n");
                     }
                     break;
 
@@ -64,17 +64,17 @@ public class MenuTypesDeBiens {
                 case 3:
                     if (listeTypes.getNbTypes() == 0) {
                         System.out.print("Il n'y a pas encore de type de biens enregistré.\n");
-                        return;
-                    }
-
-                    if (listeBiens.getNbBiens() != 0) {
-                        System.out.print ("Il reste des biens de ce type enregistrés. Action impossible.\n");
-                        return;
+                        break;
                     }
 
                     listeTypes.afficherListeDesTypesDeBien();
                     System.out.print("Saisissez l'identifiant du type de bien à supprimer : ");
                     identASupprimer = sc.nextInt();
+
+                    if (listeBiens.toutLesBiensPourUnType(identASupprimer).length != 0) {
+                        System.out.print("Il reste encore des biens de ce type enregistrés.Action impossible.\n");
+                        break;
+                    }
                     listeTypes.supprimerTypeDeBien(identASupprimer);
                     listeTypes.sauvegarderListe();
                     System.out.print("Le type de biens a été correctement supprimé.\n");

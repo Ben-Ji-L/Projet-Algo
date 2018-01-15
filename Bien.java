@@ -43,36 +43,39 @@ class Bien implements Comparable<Bien>{
      * Permet de saisir un nouveau bien.
      * @throws IOException
      */
-    void saisirBien () throws IOException {
+    boolean saisirBien () throws IOException {
         Scanner sc = new Scanner (System.in);
 
         ListeTypesDeBiens listeB = new ListeTypesDeBiens();
         
+        if (listeB.getNbTypes()==0) {
+            System.out.print("Il n'y a pas encore de type de bien enregistré, veuillez d'abord enregistrer au moins un typre de bien.\n");
+            return false;
+        }
+
         listeB.afficherListeDesTypesDeBien();
     	System.out.print ("Entrez l'identifiant du type de bien : ");
     	idType = sc.nextInt();
-    	
-        if (idType != -1) {
+
         	
-        	System.out.print ("Entrez le numero de rue du bien : ");
-            numRue = sc.nextInt();
-            sc.nextLine();
+        System.out.print ("Entrez le numero de rue du bien : ");
+        numRue = sc.nextInt();
+        sc.nextLine();
 
-            System.out.print ("Entrez la rue du bien : ");
-            rue = sc.nextLine();
+        System.out.print ("Entrez la rue du bien : ");
+        rue = sc.nextLine();
 
-            System.out.print ("Entrez le code postal du bien : ");
-            cp = sc.nextInt();
-            sc.nextLine();
+        System.out.print ("Entrez le code postal du bien : ");
+        cp = sc.nextInt();
+        sc.nextLine();
 
-            System.out.print ("Entrez la ville du bien : ");
-            ville = sc.nextLine();
+        System.out.print ("Entrez la ville du bien : ");
+        ville = sc.nextLine();
 
-            type = listeB.trouverTypeparIdent(idType);
+        type = listeB.trouverTypeparIdent(idType);
+        return true;
             
-        } else {
-        	System.out.println("Il n'y a aucun type de biens enregistré.");
-        } 
+
     }
 
     /**

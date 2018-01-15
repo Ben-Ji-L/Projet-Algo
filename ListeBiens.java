@@ -70,19 +70,24 @@ public class ListeBiens {
     void supprimerBien (int id) {
         boolean trouve = false;
 
-        if (nbBiens == 0){
-            return;
-        }
         for (int i = 0; i < nbBiens - 1; i++) {
             if (tabBiens[i].getId() == id) {
                 trouve = true;
+                if (tabBiens[i].getIdLoc() != -1) {
+                    System.out.print ("Ce bien est toujours loué. Suppression impossible.\n");
+                    return;
+                }
             }
         }
         if (!trouve) {
             if (tabBiens[nbBiens-1].getId() == id) {
                 trouve = true;
+                if (tabBiens[nbBiens-1].getIdLoc() != -1) {
+                    System.out.print ("Ce bien est toujours loué. Suppression impossible.\n");
+                    return;
+                }
             } else {
-                System.out.println("Bien non trouvé.");
+                System.out.println("Bien non trouvé.\n");
             }
         }
 

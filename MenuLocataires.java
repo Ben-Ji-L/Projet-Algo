@@ -47,7 +47,7 @@ public class MenuLocataires {
                         listeLocataires.sauvegarderListe();
                     }
                     else {
-                        System.out.println ("\nVous ne pouvez plus ajouter de locataire, le nombre maximal a déjà été atteint.");
+                        System.out.println ("\nVous ne pouvez plus ajouter de locataire, le nombre maximal a déjà été atteint.\n");
                     }
                     break;
 
@@ -134,7 +134,7 @@ public class MenuLocataires {
                 Gère les choix non proposés dans le menu
                  */
                 default:
-                    System.out.print("Commande incorrecte.");
+                    System.out.print("Commande incorrecte.\n");
             }
         } while (choixMenuLoc!=8);
     }

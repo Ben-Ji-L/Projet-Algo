@@ -37,7 +37,7 @@ public class MenuLocations {
             	// Louer un bien
                 case 1:
                     if (listeDeBiens.getNbBiens() == 0) {
-                        System.out.println("Aucun bien enregistré !");
+                        System.out.println("Aucun bien enregistré !\n");
                         break;
                     }
                     listeDeBiens.afficherListeSimplifiee();
@@ -45,7 +45,7 @@ public class MenuLocations {
                     int idBien = sc.nextInt();
                     
                     if (listeLocataires.getNbLocataires() == 0) {
-                    	System.out.println("Aucun locataire enregistré !");
+                    	System.out.println("Aucun locataire enregistré !\n");
                     	break;
                     } else {
                     	listeDeBiens.afficherLaListeDesBiensLoues();
@@ -58,7 +58,7 @@ public class MenuLocations {
                         if (listeDeBiens.getIdLocParIdentBien(idBien) == -1) {
                             listeLocataires.louer(idBien, idLoc);
                             listeDeBiens.louer(idBien, idLoc);
-                            System.out.println("Le bien est maintenant loué !");
+                            System.out.println("Le bien est maintenant loué !\n");
                         }
                         else {
                             System.out.print("Ce bien est déjà loué.\n");
@@ -75,7 +75,7 @@ public class MenuLocations {
                 // Libérer un bien
                 case 2:
                 	if (listeDeBiens.getNbBiens() == 0) {
-                		System.out.println("Aucun bien enregistré !");
+                		System.out.println("Aucun bien enregistré !\n");
                         break;
                 	}
                 	listeDeBiens.afficherListeSimplifiee();
@@ -83,7 +83,7 @@ public class MenuLocations {
                     int idBienALiberer = sc.nextInt();
                     
                     if (listeLocataires.getNbLocataires() == 0) {
-                    	System.out.println("Aucun locataire enregistré !");
+                    	System.out.println("Aucun locataire enregistré !\n");
                     	break;
                     }
 
@@ -91,7 +91,7 @@ public class MenuLocations {
                     if (idLocDuBienALiberer != -1) {
                         listeLocataires.liberer(idBienALiberer, idLocDuBienALiberer);
                         listeDeBiens.liberer(idBienALiberer);
-                        System.out.println("Le bien est maintenant libéré !");
+                        System.out.println("Le bien est maintenant libéré !\n");
                     }
 
                     listeLocataires.sauvegarderListe();
@@ -109,7 +109,7 @@ public class MenuLocations {
                 	if (listeLocataires.getNbLocataires() != 0) {
                 		listeLocataires.afficherLocatairesLouantAuMoinsUnBien(true);
                 	} else {
-                		System.out.println("Il n'y a aucun locataire enregistré !");
+                		System.out.println("Il n'y a aucun locataire enregistré !\n");
                 	}
                     break;
                 // Affiche la liste des locataires ayant au moins un bien loué
@@ -122,7 +122,7 @@ public class MenuLocations {
 
                 // En cas de commande incorrecte
                 default:
-                    System.out.print ("Commande incorrecte.");
+                    System.out.print ("Commande incorrecte.\n");
 
             }
         } while (choixMenuLocations != 6);

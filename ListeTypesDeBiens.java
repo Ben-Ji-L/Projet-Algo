@@ -38,7 +38,6 @@ public class ListeTypesDeBiens {
      * @param ident Identifiant du type à supprimer
      */
     void supprimerTypeDeBien (int ident) {
-        //TODO : vérifier que le type de bien n'est plus utilisé
 
         boolean trouve = false;
 
